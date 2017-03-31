@@ -1,0 +1,94 @@
+# ---------------------------------------------------------------------------
+# The contents of this file are subject to the JOnAS Public License Version 
+# 1.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License on the JOnAS web site.
+#
+# Software distributed under the License is distributed on an "AS IS" basis,
+# WITHOUT WARRANTY OF ANY KIND, either express or implied.
+# See the License for the specific terms governing rights and limitations
+# under the License.
+#
+# The Original Code is JOnAS application server code released July 1999.
+#
+# The Initial Developer of the Original Code is Bull S.A.
+# The Original Code and portions created by Bull S.A. are
+#    Copyright (C) 1999 Bull S.A. All Rights Reserved.
+#
+# Contributor(s): ______________________________________.
+#
+# ---------------------------------------------------------------------------
+# $Id: jonas.properties-2.4,v 1.1 2002/06/09 23:04:07 cecchet Exp $
+# ---------------------------------------------------------------------------
+
+
+###################### JOnAS Server & Container configuration
+#
+#  The current file is in the <jonas-install>/config directory.
+#  Please, refer to the <jonas-install>/doc/Install.html to understand
+#  the three levels of 'jonas.properties' files.
+#
+
+
+#  Set the name of the JOnAS Server
+jonas.name	jonas
+jonas.registry  collocated
+
+#  Set the list of the services launched in the JOnAS Server.
+#  all JOnAS services possible are: jmx,security,jtm,dbm,resource,jms,ejb.
+#  jtm,ejb are mandatory
+# Order in the list is important.
+# - jmx must be declared first.
+# - jms must be declared before ejb.
+# 
+#jonas.services			jmx,security,jtm,dbm,resource,jms,ejb
+jonas.services			jtm,dbm,ejb
+
+#
+###################### JOnAS EJB Container service configuration
+#
+#  Set the name of the implementation class of the ejb service
+jonas.service.ejb.class		org.objectweb.jonas.container.EJBServiceImpl
+
+#  Set the list of container that must be created JOnAS  Server launch time.
+#  Here should be given a coma-separated list of ejb-jar files names or standard XML deployment 
+#  descriptors files names.
+#  If the file name has a relative path, this path is relative from where the
+#  EJB Server is launched.
+#  in case of ejb-jar files if the file is not found 
+#  it will be searched in $JONAS_ROOT/ejbjars/ directory. 
+jonas.service.ejb.descriptors	rubis.jar
+
+
+#
+###################### JOnAS DBM Database service configuration
+#
+#  Set the name of the implementation class of the dbm service
+jonas.service.dbm.class		org.objectweb.jonas.dbm.DataBaseServiceImpl
+
+#  Set the jonas DataSources. This enables the JOnAS server to load
+#  the data dources, to load related jdbc drivers, and to register the data 
+#  sources into JNDI.
+#  This property is set with a coma-separated list of Datasource properties
+#  file names (without the '.properties' suffix).
+#  Ex: Oracle1,InstantDB1 (while the Datasources properties file names are
+#                          Oracle1.properties and InstantDB1.properties)
+jonas.service.dbm.datasources	mysql
+
+
+#
+###################### JOnAS JTM Transaction service configuration
+#
+
+#  Set the name of the implementation class of the jtm service
+jonas.service.jtm.class		org.objectweb.jonas.jtm.TransactionServiceImpl
+
+#  Set the Transaction Manager launching mode.
+#  If set to 'true', TM is remote: TM must be already launched in an other JVM.
+#  If set to 'false', TM is local: TM is going to run into the same JVM 
+#  than the jonas Server. 
+jonas.service.jtm.remote	false
+
+#  Set the default transaction timeout, in seconds.
+jonas.service.jtm.timeout	60
+

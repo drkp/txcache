@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<jonas-ejb-jar>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_Auth</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicAuth</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_BrowseRegions</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicBrowseRegions</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_BrowseCategories</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicBrowseCategories</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_SearchItemsByCategory</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicSearchItemsByCategory</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_SearchItemsByRegion</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicSearchItemsByRegion</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_ViewItem</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicViewItem</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_ViewUserInfo</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicViewUserInfo</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_PutComment</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicPutComment</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_StoreComment</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicStoreComment</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_RegisterUser</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicRegisterUser</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_RegisterItem</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicRegisterItem</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_PutBid</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicPutBid</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_StoreBid</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicStoreBid</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_ViewBidHistory</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicViewBidHistory</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_BuyNow</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicBuyNow</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_StoreBuyNow</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicStoreBuyNow</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+  <jonas-message-driven>
+    <ejb-name>MDB_AboutMe</ejb-name>
+    <jonas-message-driven-destination>
+      <jndi-name>topicAboutMe</jndi-name>
+    </jonas-message-driven-destination>
+
+    <jonas-resource>
+       <res-ref-name>jdbc/rubis</res-ref-name>
+       <jndi-name>mysql</jndi-name>
+    </jonas-resource>
+  </jonas-message-driven>
+
+
+</jonas-ejb-jar>

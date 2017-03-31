@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE project SYSTEM '../../common/dtd/project.dtd'>
+
+<project>
+  <title>RUBiS</title>
+
+  <description>RUBiS is an auction site prototype modeled after eBay.com. It is used for design patterns and J2EE servers performance scalability evaluation.</description>
+
+  <keywords>RUBiS,benchmark,web,Java,EJB,server,database,servlets,dynamic,content,open,source,free,software</keywords>
+
+  <body>    
+    <menu>
+      <legend>Project Links</legend>
+      <menuitem><a href="index.html">Home</a></menuitem>
+      <menuitem><a href="http://forge.objectweb.org/project/showfiles.php?group_id=44">Download</a></menuitem>
+      <menuitem><a href="doc/index.html">Documentation</a></menuitem>
+      <menuitem><a href="http://www.objectweb.org/wws/info/jmob">Mailing List</a></menuitem>
+      <menuitem><a href="results.html">Experimental Results</a></menuitem>
+      <menuitem><a href="license.html">License</a></menuitem>
+      <menuitem><a href="history.html">History</a></menuitem>
+    </menu>
+
+    <menu>
+      <legend>Developers' Corner</legend>
+      <menuitem><a href="dev/contrib.html">Getting Involved</a></menuitem>
+      <menuitem><a href="http://forge.objectweb.org/projects/rubis/">ObjectWeb Forge Site</a></menuitem>
+      <menuitem><a href="http://forge.objectweb.org/cvs/?group_id=44">CVS Repository</a></menuitem>
+    </menu>
+
+    <menu>
+      <legend>About</legend>
+      <menuitem><a href="mailto:jmob@objectweb.org">Contacts</a></menuitem>
+      <menuitem><a href="team.html">Team</a></menuitem>
+      <menuitem><a href="http://jmob.objectweb.org/">JMOB</a></menuitem>
+    </menu>
+  </body>
+</project>

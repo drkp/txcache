@@ -1,0 +1,233 @@
+
+<project name="EntityBean_CMP" default="dist" basedir=".">
+  <!-- EntityBean CMP Ant build file -->
+
+  <!-- set global properties for this build -->
+  <property file="../build.properties" />
+
+ <!-- some properties are build from environment variables -->
+  <property environment="myenv"/>
+  <property name="jonas.root" value="${myenv.JONAS_ROOT}" />
+  <property name="jboss.dist" value="${myenv.JBOSS_DIST}" />
+
+ <!-- Set the uncustomizable properties -->
+ 
+  <property name="lib.dir" value="${jonas.root}/lib" />
+
+
+<!-- ====================================================================== -->
+<!-- Init -->
+<!-- ====================================================================== -->
+  <!-- init rule creates build directory -->
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${classes.dir}"/>
+     <!-- check the ejb server value -->
+     <condition property="jonas">
+       <equals trim="true"
+       arg1="${ejb.server}" arg2="jonas" />
+    </condition>
+    <condition property="jboss">
+       <equals trim="true"
+       arg1="${ejb.server}" arg2="jboss" />
+    </condition>
+  </target>
+  
+<!-- ====================================================================== -->
+<!-- Servlets -->
+<!-- ====================================================================== -->
+
+  <target name="servlets_config_jboss" if="jboss" depends="init">
+    <copy file="edu/rice/rubis/beans/servlets/ConfigJBoss.java" tofile="edu/rice/rubis/beans/servlets/Config.java"/>
+  </target>
+
+  <target name="servlets_config_jonas" if="jonas" depends="init">
+    <copy file="edu/rice/rubis/beans/servlets/ConfigJOnAS.java" tofile="edu/rice/rubis/beans/servlets/Config.java"/>
+  </target>
+
+  <target name="servlets" depends="init, servlets_config_jboss, servlets_config_jonas">
+    <javac srcdir="${src}"
+	   includes="edu/rice/rubis/beans/servlets/*"
+	   excludes="edu/rice/rubis/beans/servlets/ConfigJBoss.java, edu/rice/rubis/beans/servlets/ConfigJOnAS.java"
+	   destdir="${classes.dir}"
+	   depend="yes"
+	   deprecation="yes" >
+     <classpath refid="base.classpath" />
+    </javac>
+  </target>
+
+  <!-- Create the rubis_ejb_servlets jar file that contains the servlets-->
+  <target name="servlets_jar" depends="init, compile">
+     <jar destfile="${dist}/rubis_ejb_servlets.jar">
+	<fileset dir="${classes.dir}"
+		 includes="edu/rice/rubis/beans/servlets/*.class"/>
+    </jar>
+  </target>
+
+<!-- Create a war file-->
+  <target name="rubis_war" depends="init, compile, servlets_jar, jonas_jar, jboss_jar">
+    <copy file="${dist}/rubis_ejb_servlets.jar" todir="${web.dir}/WEB-INF/lib"/>
+    <copy file="${dist}/rubis.jar" todir="${web.dir}/WEB-INF/lib"/>
+     <war destfile="${dist}/ejb_rubis_web.war" webxml="${web.dir}/WEB-INF/web.xml" basedir="${web.dir}">
+	<fileset dir="${classes.dir}"
+		 includes="*"/>
+    </war>
+  </target>
+  
+<!-- ====================================================================== -->
+<!-- EJB -->
+<!-- ====================================================================== -->
+
+ <!-- ejbjar task for jonas -->
+ <taskdef name="ejbjar"
+    classname="org.objectweb.jonas.ant.EjbJar"
+    classpath="${jonas.root}/lib/common/ow_jonas_ant.jar" />
+
+  <!-- The classpath to be used to compile  -->
+  <path id="base.classpath">
+    <pathelement location="${classes.dir}" />
+    <fileset dir="${lib.dir}">
+      <include name="jonas.jar"/>
+      <include name="web*.jar"/>     
+    </fileset>
+    <fileset dir="${j2ee}/lib">
+      <include name="j2ee.jar"/>
+    </fileset>
+  </path>
+  
+    <target name="beans" depends="init">
+    <copy file="edu/rice/rubis/beans/QueryBean${db.server}.java" tofile="edu/rice/rubis/beans/QueryBean.java"/>
+    <javac srcdir="${src}"
+	   includes="edu/rice/rubis/beans/*"
+	   excludes="edu/rice/rubis/beans/QueryBeanMySQL.java, edu/rice/rubis/beans/QueryBeanPostgreSQL.java"
+	   destdir="${classes.dir}"
+	   depend="yes"
+	   deprecation="yes" >
+     <classpath refid="base.classpath" />
+    </javac>
+  </target>
+
+  <!-- Create the rubis.jar file for Jonas --> 
+  <target name="jonas_jar" if="jonas" depends="init, compile">
+    <ejbjar srcdir="${classes.dir}"
+              destdir="${dist}"
+              descriptordir="./META-INF/JOnAS"
+              basejarname="rubis" >
+
+      <dtd publicId="-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN"
+	   location="${jonas.root}/xml/ejb-jar_1_1.dtd" />
+      <dtd publicId="-//ObjectWeb//DTD JOnAS 2.5//EN"
+	   location="${jonas.root}/xml/jonas-ejb-jar_2_5.dtd" />
+      <jonas destdir="${dist}"
+             jonasroot="${jonas.root}"
+             protocols="${protocols.names}"/>
+      <include name="**/ejb-jar.xml"/>
+      <exclude name="**/jonas-ejb-jar.xml"/>
+      <support dir="${classes.dir}">
+            <include name="edu/rice/rubis/beans/TimeManagement.class"/>
+      </support>
+    </ejbjar>
+
+  </target>
+
+  <!-- Create the rubis.jar file that contains the beans for Jboss--> 
+  <target name="jboss_jar" if="jboss" depends="init, compile">
+     <copy todir="${src}/META-INF">
+       <fileset dir="${src}/META-INF/JBoss">
+          <include name="*.xml"/>
+       </fileset>
+     </copy>
+     <jar destfile="${dist}/rubis.jar">
+	<fileset dir="${classes.dir}"
+		 includes="edu/rice/rubis/beans/*.class"/>
+	<metainf dir="${src}/META-INF">
+            <include name="*.xml"/>
+	</metainf>
+    </jar>
+    <copy file="${dist}/rubis.jar" todir="${jboss.dist}/server/default/deploy"/>
+  </target>
+
+<!-- ====================================================================== -->
+<!-- Compile and dist targets -->
+<!-- ====================================================================== -->
+
+  <!-- dist rule creates jar files containing the servlets and the beans -->
+  <target name="dist" depends="init, compile, rubis_war, jboss_jar, jonas_jar">
+  </target>
+
+  <!-- compile rule: Compile the beans and the servlets -->
+  <target name="compile" depends="init, servlets, beans">
+  </target>
+
+<!-- ====================================================================== -->
+<!-- Install -->
+<!-- ====================================================================== -->
+
+<target name="install-jonas" 
+	  description="Build and install the rubis.jar and ejb_rubis_web.war file in JONAS_ROOT"
+	  depends="jonas_jar, rubis_war" >
+    <!-- Copy jar files in JONAS_ROOT -->
+    <copy todir="${jonas.root}/ejbjars/autoload">
+      <fileset dir="${dist}"
+	       includes="rubis.jar" />
+    </copy>
+    <!-- Copy war files in JONAS_ROOT -->
+    <copy todir="${jonas.root}/webapps/autoload">
+      <fileset dir="${dist}"
+	       includes="ejb_rubis_web.war" />
+    </copy>
+  </target>
+
+<!-- ====================================================================== -->
+<!-- Javadoc -->
+<!-- ====================================================================== -->
+
+  <!-- Generate Javadoc documentation -->
+  <target name="doc">
+     <mkdir dir="docs/api"/>
+     <javadoc classpathref="base.classpath" 
+           defaultexcludes="yes"
+           destdir="docs/api"
+           author="true"
+           version="true"
+           use="true"
+           windowtitle="RUBiS API">
+           
+       <fileset dir="${src}" defaultexcludes="yes">
+        <include name="edu/rice/rubis/**"/>
+        <exclude name="edu/rice/rubis/beans/servlets/ConfigJOnAS.java"/>
+        <exclude name="edu/rice/rubis/beans/servlets/ConfigJBoss.java"/>
+        <exclude name="edu/rice/rubis/beans/servlets/package.html"/>
+        <exclude name="edu/rice/rubis/beans/QueryBeanMySQL.java"/>
+        <exclude name="edu/rice/rubis/beans/QueryBeanPostgreSQL.java"/>
+        <exclude name="edu/rice/rubis/beans/package.html"/>
+      </fileset>
+       <doctitle><![CDATA[<h1>RUBiS Entity Beans CMP implementation API</h1>]]></doctitle>
+       <bottom><![CDATA[<i>Copyright &#169; 2003 - ObjectWeb Consortium - All Rights Reserved.</i>]]></bottom>
+     </javadoc>
+  </target>
+
+<!-- ====================================================================== -->
+<!-- Clean -->
+<!-- ====================================================================== -->
+  <target name="clean">
+    <!-- Delete the ${classes.dir} and ${dist} directory trees -->
+    <delete dir="${classes.dir}"/>
+    <delete>
+      <fileset dir="${dist}" includes="*.jar"/>
+    </delete>
+    <delete>
+      <fileset dir="${dist}" includes="*.war"/>
+    </delete>
+    <delete>
+      <fileset dir="${src}/META-INF" includes="*.xml"/>
+    </delete>
+    <delete>
+      <fileset dir="edu" includes="**/*.class"/>
+    </delete>
+  </target>
+
+</project>
+

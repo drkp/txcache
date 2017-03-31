@@ -1,0 +1,35 @@
+Thu Mar 27 13:00:59 CET 2003  [debug] AvalonLogSystem initialized using logfile /home/margueri/workspace/RUBiS/EJB_CMP2.0/velocity.log
+Thu Mar 27 13:00:59 CET 2003   [info] Jakarta Velocity v1.2
+Thu Mar 27 13:00:59 CET 2003   [info] RuntimeInstance initializing.
+Thu Mar 27 13:00:59 CET 2003   [info] Default Properties File: org/apache/velocity/runtime/defaults/velocity.properties
+Thu Mar 27 13:00:59 CET 2003   [info] Resource manager initializing.
+Thu Mar 27 13:00:59 CET 2003   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Thu Mar 27 13:00:59 CET 2003   [info] FileResourceLoader : initialization starting.
+Thu Mar 27 13:00:59 CET 2003   [info] FileResourceLoader : adding path '/opt/objectweb/JONAS/webapps/jonas/jadmin/templates'
+Thu Mar 27 13:00:59 CET 2003   [info] FileResourceLoader : initialization complete.
+Thu Mar 27 13:00:59 CET 2003   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Literal
+Thu Mar 27 13:00:59 CET 2003   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Macro
+Thu Mar 27 13:00:59 CET 2003   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Parse
+Thu Mar 27 13:00:59 CET 2003   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Include
+Thu Mar 27 13:00:59 CET 2003   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Foreach
+Thu Mar 27 13:00:59 CET 2003   [info] Created: 20 parsers.
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : initialization starting.
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : adding VMs from VM library template : VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #AreaTitle( title ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #TABLE( bgcolor border cellspacing cellpadding width ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #TableCellOpen( tablecolor cellcolor border cellspacing cellpadding width ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #TableCellClose( ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #AreaOpen( ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #AreaClose( ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #Banner( link ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #EJB( ejbTitle servlet type fileName beans ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : added new VM : #AreaElem( aname aval ) : source = VM_global_library.vm
+Thu Mar 27 13:00:59 CET 2003   [info] ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro :  VM library template macro registration complete.
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : allowInline = true : VMs can be defined inline in templates
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : allowInlineLocal = false : VMs defined inline will be  global in scope if allowed.
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : messages on  : VM system will output logging messages
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : autoload off  : VM system will not automatically reload global library macros
+Thu Mar 27 13:00:59 CET 2003   [info] Velocimacro : initialization complete.
+Thu Mar 27 13:00:59 CET 2003   [info] Velocity successfully started.

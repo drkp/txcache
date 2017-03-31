@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>RUBiS Configuration</title>
+    <filename>howto-jonas.xml</filename>
+    <pathtoroot>..</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="Installing RUBiS with JOnAS (by Jacques Cayuela, JOnAS team)" anchor="jonas">
+		<p>
+     	We use the following machines :
+     	</p>
+     	<ul>
+		<li>wake   JOnAS server (small JOnAS)</li>
+		<li>fidji  mySQL database and Apache+Tomcat</li>
+		<li>hawai  client emulator</li>
+      </ul>
+
+		<p>
+		Create a login rubis password rubis on the machines :
+		wake, fidji, hawai (All the machines involved in your test)
+		</p>
+		<p>
+		Note that RUBIS_HOME refers to the directory where rubis is installed
+		</p>
+		
+  <s2 name="Check the configuration"> 
+      	<ul>
+		<li>rsh</li>
+      	</ul>
+		<p>Verify that rsh is ok. On each host create a file  ~/.rhosts with the
+		 allowed machines names.<br></br>
+		To test :<br></br>
+		<code>rsh machineName -n uname -a</code><br></br>
+		If you get permission denied the configuration is not ok.</p>
+      	<ul>
+		<li>Scripts that draw the graphics</li>
+      	</ul>		
+		<p>Check the scripts are executable<br></br>
+		<code>cd $RUBIS_HOME/bench</code><br></br>
+		<code>chmod u+x *.sh *.awk</code></p>
+		    			
+		<ul>
+		<li>Check MySQL configuration</li>
+      	</ul>		
+		<p>With remote shell connect to the remote machine.<br></br>
+		Create a user jonas/jonas in the mySQL data base, not with all but the 
+		exact name of the host.<br></br>
+		fidji.dc.frec.bull.fr for example
+		</p>
+		
+		<ul>
+		<li>War file</li>
+      	</ul>
+		<p>Check the ejb jar is present in WEB-INF/lib in the war package. 
+		Else no error is displayed in Tomcat logs
+		</p>
+		
+      	<ul>
+		<li>Create a symbolic link for apache</li>
+      	</ul>		
+		<p><code>/usr/local/apache2/htdocs
+		lrwxrwxrwx    1 root     root           42 jan  9 13:34 EJB_HTML -> /server/jonas/src/objectweb/rubis/EJB_HTML
+		</code></p>
+	
+	</s2>
+
+
+ <s2 name="JOnAS environment"> 
+		  <p>
+			By default j2sdk1.4.2, apache-ant-1.5.4, httpunit-1.5.3, 
+			jakarta-tomcat-4.1.27<br></br>
+			It is possible to work with different binary versions of JOnAS.
+		  </p>
+		    <p>We use the following rules : for each version versions 
+		    JONAS_ROOT=$HOME/pkg/jonas-3-3-xx
+		    and JONAS_BASE=$HOME/jb3.3.x : 
+		  </p>
+   	<p>Customize the files in $JONAS_BASE/conf :<br></br>
+  		<code>MysqlFidji.properties --> jdbc:mysql://fidji:3306/db_rubis</code><br></br>
+  		<code>jonasbase.properties  --> webcontainer.http.port=19610</code><br></br>
+			    <code>a3server.port=16050</code><br></br>
+			    <code>registry port = 2004</code>
+ 	</p>
+   <p>In jonas.properties:  <br></br>
+       <code>jonas.service.dbm.datasources   MysqlFidji</code>
+	</p>
+   <p>In MysqlFidji.properties:<br></br>
+       <code>datasource.name			mysql </code><br></br>
+       <code>datasource.url			jdbc:mysql://fidji:3306/rubis</code><br></br>
+       <code>datasource.classname		org.gjt.mm.mysql.Driver</code><br></br>
+       <code>datasource.username		jonas</code><br></br>
+       <code>datasource.password		jonas</code><br></br>
+       <code>datasource.mapper		rdb.mysql</code>
+  	</p>
+</s2>
+
+
+ <s2 name="Mysql, Apache, tomcat environment">
+
+    <p>
+    	Mysql is configured to accept requests from a jonas user from any host
+      	A database db_rubis is created.
+    </p>
+    <p>
+      	Apache 2.0 is installed under /usr/local/apache2. APACHE_HOME is set
+      	to this directory.
+       	 Under $APACHE_HOME/conf tomcat_jk.conf is modified so that it 
+       	 references the worker  workerForRubis 
+  	</p>       	 
+     <p>  
+      	 Then, change the URL relative to Rubis under
+		$APACHE_HOME/conf/jk/workers.properties is the worker definition
+      	associated to the Tomcat instance that will run on fidji.
+  	</p>
+  	<p>   	
+      	Tomcat-4.1.27 is used in a first step in standalone mode.<br></br>
+      	CATALINA_HOME=/server/products/apache/jakarta-tomcat-4.1.27<br></br>
+      	CATALINA_BASE=$CATALINA_HOME/rubis<br></br>
+      	The following modifications were made to 
+      	$CATALINA_BASE/conf/server.xml :<br></br>
+      	 <code>&lt;Server port="16050" shutdown="SHUTDOWN" debug="0"&gt;</code><br></br>
+
+      	 <code>&lt;Connector className="org.apache.coyote.tomcat4.CoyoteConnector"</code><br></br>
+            <code>port="20040" minProcessors="5" maxProcessors="75" &gt;</code><br></br> 
+ 
+
+       <code>&lt;Connector className="org.apache.ajp.tomcat4.Ajp13Connector"</code><br></br>
+           <code> port="8019" minProcessors="5" maxProcessors="75"</code><br></br>
+           <code> acceptCount="10" debug="0"&gt;</code><br></br>
+
+       	<code>&lt;Engine name="workerForRubis" defaultHost="localhost" debug="0" jmvRoute="jvm1"&gt;</code>
+  	</p>      	
+  </s2>
+
+ <s2 name="Rubis">
+
+  	<p>Rubis is installed in : /server/jonas/src/objectweb/rubis 
+  	(each hosts see this directory with nfs mount)
+  	</p>
+  	<p>Under $APACHE_HOME/htdocs link
+     ejb_rubis_web -> /server/jonas/src/objectweb/rubis/ejb_rubis_web
+  	</p>
+
+  	<p>In non distributed mode (everything is on fidji). This can be a first
+  	 step to check that the configuration is ok:
+  	</p>
+      	<ul>
+		<li>Launch apache as root </li>
+		</ul>
+		<p><code> $APACHE_HOME/bin/apachectl start  ($APACHE_HOME/bin/apachectl stop)</code>
+		</p>      	
+      	<ul>
+		<li>Deploy the EJB application</li>
+		</ul>		
+		<p><code> cp $RUBIS_HOME/EJB_EntityBean_id/rubis.jar $JONAS_BASE/ejbjars/autoload</code>
+		</p>
+      	<ul>
+		<li>Deploy the Web application (using JOnAS_tomcat bundle):</li>
+		</ul>
+		<p><code> cp $RUBIS_HOME/EJB_EntityBean_id/ejb_rubis_web.war $JONAS_BASE/webapps/autoload</code>
+		<code> jonas start</code>
+		</p>
+      	<ul>
+		<li>Deploy the Web application (using Tomcat standalone):</li>
+		</ul>
+		<p><code> cp $RUBIS_HOME/EJB_EntityBean_id/ejb_rubis_web.war $CATALINA_BASE/webapps</code><br></br>
+		   <code> cd $RUBIS_HOME/EJB_EntityBean_id</code><br></br>
+		   <code> tomcat_jonas_start.sh</code><br></br>
+		   <code> jonas start</code>
+		</p>
+      	<p>Access to RUBiS: http://fidji/ejb_rubis_web/</p>
+		
+  </s2>
+ <s2 name="Troubleshouting">
+      	<p>In case of ClassCast exception problem during UserTransaction look up, 
+		try to :<br></br>
+        <code>cp $JONAS_BASE/lib/jonas.jar $CATALINA_BASE/webapps/ejb_rubis_web/WEB-INF/lib</code>
+		</p>
+      	<p>RUBiS requires the DB datasource name to be 'mysql' (all in
+lowercase)</p>
+
+      	<p>If you are using an EJB implementation that does not make use of the Auth.java servlet
+the parts for 'Auth' servlet should be commented out in ejb_rubis_web/WEB-INF/web.xml before 
+compiling the bench. Otherwise JOnAS will not be able to load the war file.</p>
+  </s2>
+
+  </s1>
+
+
+  </body>
+
+</document>

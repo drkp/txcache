@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- 
+This is the JBoss 2.4 EJB deployment descriptor for RUBiS.
+-->
+
+<jboss>
+
+<!-- 
+  <enforce-ejb-restrictions />
+  <security-domain />
+  <unauthenticated-principal />
+-->
+
+  <enterprise-beans>
+
+    <entity>
+      <ejb-name>Category</ejb-name>
+      <jndi-name>CategoryHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Region</ejb-name>
+      <jndi-name>RegionHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>User</ejb-name>
+      <jndi-name>UserHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+ 
+    <entity>
+      <ejb-name>Item</ejb-name>
+      <jndi-name>ItemHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>OldItem</ejb-name>
+      <jndi-name>OldItemHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Bid</ejb-name>
+      <jndi-name>BidHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Comment</ejb-name>
+      <jndi-name>CommentHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>BuyNow</ejb-name>
+      <jndi-name>BuyNowHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>IDManager</ejb-name>
+      <jndi-name>IDManagerHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <session>
+      <ejb-name>Query</ejb-name>
+      <jndi-name>QueryHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+  </enterprise-beans>
+
+
+  <resource-managers>
+
+    <resource-manager>
+      <res-name>rubis</res-name>
+      <res-jndi-name>java:/rubis</res-jndi-name>
+    </resource-manager>
+
+  </resource-managers>
+
+<!--
+  <container-configurations>
+
+    <container-configuration>
+      <container-name />
+      <container-invoker />
+      <container-interceptors />
+      <instance-pool />
+      <instance-cache />
+      <persistence-manager />
+      <transaction-manager />
+      <container-invoker-conf />
+      <container-cache-conf />
+      <container-pool-conf />
+      <commit-option />
+      <optiond-refresh-rate />
+      <security-domain />
+    </container-configuration>
+
+  </container-configurations>
+-->
+
+</jboss>
+

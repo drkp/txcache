@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>rubis.properties File Example</title>
+    <filename>properties_file.xml</filename>
+    <pathtoroot>..</pathtoroot>
+  </properties>
+
+  <body>
+
+<s1 name="rubis.properties Example">
+
+<p><strong># HTTP server information</strong></p>
+<p><code>httpd_hostname = httpserver.cs.rice.edu</code></p>
+<p><code>httpd_port = 80</code></p>
+<p><em><code># Precise which version will be used by the
+client. Valid options are : PHP, Servlets, EJB (respect the case)</code></em></p>
+<p><code>httpd_use_version = Servlets</code></p>
+
+<p><strong># EJB server information</strong></p>
+<p><code>ejb_server = jonas.cs.rice.edu</code><em><code># leave
+this field blank if you don't use the EJB version or if the EJB server
+is co-located with another server.</code></em></p>
+<p><code>ejb_html_path = /ejb_rubis_web</code></p>
+<p><code>ejb_script_path = /servlet</code></p>
+
+<p><strong># Servlet server information</strong></p>
+<p><code>servlets_server = tomcat.cs.rice.edu</code> <em><code># leave
+this field blank if you don't use the Servlets or EJB version or if the
+Tomcat runs on the same machine as the Web or Database server.</code></em></p>
+<p><code>servlets_html_path = /Servlet_HTML</code></p>
+<p><code>servlets_script_path = /servlet</code></p>
+
+<p><strong># PHP server information</strong></p>
+<p><code>php_html_path = /PHP</code></p>
+<p><code>php_script_path = /PHP</code></p>
+
+<p><strong># Workload: precise which transition table to use to determine the workload</strong></p>
+<p><code>workload_remote_client_nodes = client1.cs.rice.edu,
+client2.cs.rice.edu</code><em><code># leave this field blank if you have only one
+client</code></em></p>
+<p><code>workload_remote_client_command = /usr/java/jdk1.3.1/bin/java
+-classpath RUBiS edu.rice.rubis.client.ClientEmulator</code></p>
+<p><code>workload_number_of_clients_per_node = 50</code> <em><code>#
+in this example we will have 150 clients (50 on the main client, 50 on
+client1.cs.rice.edu and 50 on client2.cs.rice.edu)</code></em></p>
+<p><code>workload_transition_table = /home/cecchet/RUBiS/workload/transitions.txt</code></p>
+<p><code>workload_number_of_columns = 27</code></p>
+<p><code>workload_number_of_rows = 29</code></p>
+<p><code>workload_maximum_number_of_transitions = 1000</code></p>
+<p><code>workload_number_of_items_per_page = 20</code></p>
+<p><code>workload_use_tpcw_think_time = yes</code><em><code>#
+no to use waiting time defined in the transition matrix, yes for TPC-W
+negative exponential think time (mean of 7s)</code></em></p>
+<p><code>workload_up_ramp_time_in_ms = 60000</code></p>
+<p><code>workload_up_ramp_slowdown_factor = 2</code></p>
+<p><code>workload_session_run_time_in_ms = 300000</code></p>
+<p><code>workload_down_ramp_time_in_ms = 60000</code></p>
+<p><code>workload_down_ramp_slowdown_factor = 3</code></p>
+
+<p><strong>#Database information</strong></p>
+<p><code>database_server = dbserver.cs.rice.edu</code></p>
+
+<p><strong># Users policy</strong></p>
+<p><code>database_number_of_users = 1000000</code></p>
+
+<p><strong># Region and Category definition files</strong></p>
+<p><code>database_regions_file = /home/RUBiS/database/ebay_regions.txt</code></p>
+<p><code>database_categories_file = /home/RUBiS/database/ebay_simple_categories.txt</code></p>
+
+<p><strong># Items policy</strong></p>
+<p><code>database_number_of_old_items = 1000000</code></p>
+<p><code>database_percentage_of_unique_items = 80</code></p>
+<p><code>database_percentage_of_items_with_reserve_price
+= 40</code></p>
+<p><code>database_percentage_of_buy_now_items = 10</code></p>
+<p><code>database_max_quantity_for_multiple_items = 10</code></p>
+<p><code>database_item_description_length = 8192</code></p>
+
+<p><strong># Bids policy</strong></p>
+<p><code>database_max_bids_per_item = 20</code></p>
+
+<p><strong># Comments policy</strong></p>
+<p><code>database_max_comments_per_user = 20</code></p>
+<p><code>database_comment_max_length = 2048</code></p>
+
+<p><strong># Monitoring Information</strong></p>
+<p><code>monitoring_debug_level = 1</code> <em><code># 0 = no debug
+message, 1 = just error messages, 2 = error messages+HTML pages, 3 = everything!</code></em></p>
+<p><code>monitoring_program = /usr/bin/sar</code></p>
+<p><code>monitoring_options = -n DEV -n SOCK -rubcw</code></p>
+<p><code>monitoring_sampling_in_seconds = 1</code></p>
+<p><code>monitoring_rsh = /usr/bin/rsh</code></p>
+<p><code>monitoring_gnuplot_terminal = gif</code> <em><code>#
+in the last versions of gnuplot, gif is no more supported, you may use
+'jpeg' insted.</code></em></p>
+
+</s1
+>
+</body>
+</document>

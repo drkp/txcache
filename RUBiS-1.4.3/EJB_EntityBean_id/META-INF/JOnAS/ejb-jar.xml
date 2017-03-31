@@ -1,0 +1,586 @@
+<?xml version="1.0"?>
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
+
+<ejb-jar>
+    <enterprise-beans>
+
+        <session>
+    	    <description>Deployment descriptor for Rubis Query Bean</description>
+            <display-name>RUBiS Query Bean</display-name>
+            <ejb-name>Query</ejb-name>
+            <home>edu.rice.rubis.beans.QueryHome</home>
+            <remote>edu.rice.rubis.beans.Query</remote>
+            <ejb-class>edu.rice.rubis.beans.QueryBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+        <entity>
+            <description>Category Bean deployment descriptor</description>
+            <display-name>Category</display-name>
+            <ejb-name>Category</ejb-name>
+            <home>edu.rice.rubis.beans.CategoryHome</home>
+            <remote>edu.rice.rubis.beans.Category</remote>
+            <ejb-class>edu.rice.rubis.beans.CategoryBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.CategoryPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>Category name</description>
+                <field-name>name</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Category id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>Region Bean deployment descriptor</description>
+            <display-name>Region</display-name>
+            <ejb-name>Region</ejb-name>
+            <home>edu.rice.rubis.beans.RegionHome</home>
+            <remote>edu.rice.rubis.beans.Region</remote>
+            <ejb-class>edu.rice.rubis.beans.RegionBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.RegionPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>Region name</description>
+                <field-name>name</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Region id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>User Bean deployment descriptor</description>
+            <display-name>User</display-name>
+            <ejb-name>User</ejb-name>
+            <home>edu.rice.rubis.beans.UserHome</home>
+            <remote>edu.rice.rubis.beans.User</remote>
+            <ejb-class>edu.rice.rubis.beans.UserBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.UserPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>User id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User firstname</description>
+                <field-name>firstName</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User lastname</description>
+                <field-name>lastName</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User nickname</description>
+                <field-name>nickName</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User password</description>
+                <field-name>password</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User email</description>
+                <field-name>email</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User rating</description>
+                <field-name>rating</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User account balance</description>
+                <field-name>balance</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User record creation date</description>
+                <field-name>creationDate</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User region Id in regions table</description>
+                <field-name>regionId</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>Item Bean deployment descriptor</description>
+            <display-name>Item</display-name>
+            <ejb-name>Item</ejb-name>
+            <home>edu.rice.rubis.beans.ItemHome</home>
+            <remote>edu.rice.rubis.beans.Item</remote>
+            <ejb-class>edu.rice.rubis.beans.ItemBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.ItemPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>Item id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item name</description>
+                <field-name>name</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item description</description>
+                <field-name>description</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item initial price</description>
+                <field-name>initialPrice</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item quantity</description>
+                <field-name>quantity</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item reserve price</description>
+                <field-name>reservePrice</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item buy now price</description>
+                <field-name>buyNow</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item number of bids</description>
+                <field-name>nbOfBids</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item maximum bid</description>
+                <field-name>maxBid</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item selling start date</description>
+                <field-name>startDate</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item selling end date</description>
+                <field-name>endDate</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item seller Id in users table</description>
+                <field-name>sellerId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item category Id in categories table</description>
+                <field-name>categoryId</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>Old Item Bean deployment descriptor</description>
+            <display-name>Old Item</display-name>
+            <ejb-name>OldItem</ejb-name>
+            <home>edu.rice.rubis.beans.OldItemHome</home>
+            <remote>edu.rice.rubis.beans.OldItem</remote>
+            <ejb-class>edu.rice.rubis.beans.OldItemBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.OldItemPK</prim-key-class>
+            <reentrant>False</reentrant>
+            <cmp-field>
+                <description>OldItem id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem name</description>
+                <field-name>name</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem description</description>
+                <field-name>description</field-name>
+            </cmp-field>
+           <cmp-field>
+                <description>OldItem initial price</description>
+                <field-name>initialPrice</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem quantity</description>
+                <field-name>quantity</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem reserve price</description>
+                <field-name>reservePrice</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem buy now price</description>
+                <field-name>buyNow</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem number of bids</description>
+                <field-name>nbOfBids</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem maximum bid</description>
+                <field-name>maxBid</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem selling start date</description>
+                <field-name>startDate</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem selling end date</description>
+                <field-name>endDate</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem seller Id in users table</description>
+                <field-name>sellerId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>OldItem category Id in categories table</description>
+                <field-name>categoryId</field-name>
+            </cmp-field>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>Bid Bean deployment descriptor</description>
+            <display-name>Bid</display-name>
+            <ejb-name>Bid</ejb-name>
+            <home>edu.rice.rubis.beans.BidHome</home>
+            <remote>edu.rice.rubis.beans.Bid</remote>
+            <ejb-class>edu.rice.rubis.beans.BidBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.BidPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>Bean id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Bid user id</description>
+                <field-name>userId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Bid item id</description>
+                <field-name>itemId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Bid quantity</description>
+                <field-name>qty</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Value of this bid</description>
+                <field-name>bid</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Max value user wants to bid</description>
+                <field-name>maxBid</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Bid date</description>
+                <field-name>date</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>Comment Bean deployment descriptor</description>
+            <display-name>Comment</display-name>
+            <ejb-name>Comment</ejb-name>
+            <home>edu.rice.rubis.beans.CommentHome</home>
+            <remote>edu.rice.rubis.beans.Comment</remote>
+            <ejb-class>edu.rice.rubis.beans.CommentBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.CommentPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>Comment id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Comment author user id</description>
+                <field-name>fromUserId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>User id this comment is about</description>
+                <field-name>toUserId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Item id</description>
+                <field-name>itemId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Rating given by the author</description>
+                <field-name>rating</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Comment date</description>
+                <field-name>date</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>Text of the comment</description>
+                <field-name>comment</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>BuyNow Bean deployment descriptor</description>
+            <display-name>BuyNow</display-name>
+            <ejb-name>BuyNow</ejb-name>
+            <home>edu.rice.rubis.beans.BuyNowHome</home>
+            <remote>edu.rice.rubis.beans.BuyNow</remote>
+            <ejb-class>edu.rice.rubis.beans.BuyNowBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.BuyNowPK</prim-key-class>
+            <reentrant>False</reentrant>	    
+            <cmp-field>
+                <description>Bean id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>BuyNow buyer id</description>
+                <field-name>buyerId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>BuyNow item id</description>
+                <field-name>itemId</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>BuyNow quantity</description>
+                <field-name>qty</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>BuyNow date</description>
+                <field-name>date</field-name>
+            </cmp-field>
+            <ejb-ref>
+                <description>This is the reference to the id manager</description>
+                <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.IDManagerHome</home>
+		<remote>edu.rice.rubis.beans.IDManager</remote>
+		<ejb-link>IDManager</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+        <entity>
+            <description>IDManager Bean deployment descriptor</description>
+            <display-name>IDManager</display-name>
+            <ejb-name>IDManager</ejb-name>
+            <home>edu.rice.rubis.beans.IDManagerHome</home>
+            <remote>edu.rice.rubis.beans.IDManager</remote>
+            <ejb-class>edu.rice.rubis.beans.IDManagerBean</ejb-class>
+            <persistence-type>Container</persistence-type>
+            <prim-key-class>edu.rice.rubis.beans.IDManagerPK</prim-key-class>
+            <reentrant>False</reentrant>
+            <cmp-field>
+                <description>IDManager id</description>
+                <field-name>id</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for categories</description>
+                <field-name>categoryCount</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for regions</description>
+                <field-name>regionCount</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for users</description>
+                <field-name>userCount</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for items</description>
+                <field-name>itemCount</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for comments</description>
+                <field-name>commentCount</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for bids</description>
+                <field-name>bidCount</field-name>
+            </cmp-field>
+            <cmp-field>
+                <description>IDManager current maximum id for buyNows</description>
+                <field-name>buyNowCount</field-name>
+            </cmp-field>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </entity>
+
+    </enterprise-beans>
+
+
+    <assembly-descriptor>
+
+        <container-transaction>
+            <method>
+	        <ejb-name>Query</ejb-name>
+	        <method-name>*</method-name>
+            </method>
+            <trans-attribute>NotSupported</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>Category</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>Region</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>User</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>Item</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>OldItem</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>Bid</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>Comment</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>BuyNow</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+        <container-transaction>
+            <method>
+                <ejb-name>IDManager</ejb-name>
+		<method-name>*</method-name>
+            </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+
+    </assembly-descriptor>
+</ejb-jar>

@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- 
+This is the JBoss 3.0 EJB deployment descriptor for RUBiS.
+-->
+
+<jboss>
+
+  <enterprise-beans>
+
+    <entity>
+      <ejb-name>Region</ejb-name>
+      <jndi-name>RegionHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name> 
+      <local-jndi-name>RegionLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Category</ejb-name>
+      <jndi-name>CategoryHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name>
+      <local-jndi-name>CategoryLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+
+    <entity>
+      <ejb-name>User</ejb-name>
+      <jndi-name>UserHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name>
+      <local-jndi-name>UserLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Item</ejb-name>
+      <jndi-name>ItemHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name>
+      <local-jndi-name>ItemLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>OldItem</ejb-name>
+      <jndi-name>OldItemHome</jndi-name>
+      <local-jndi-name>OldItemLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Bid</ejb-name>
+      <jndi-name>BidHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name>
+      <local-jndi-name>BidLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>Comment</ejb-name>
+      <jndi-name>CommentHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name>
+      <local-jndi-name>CommentLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>BuyNow</ejb-name>
+      <jndi-name>BuyNowHome</jndi-name>
+      <configuration-name>Instance Per Transaction CMP 2.x EntityBean</configuration-name>
+      <local-jndi-name>BuyNowLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+    <entity>
+      <ejb-name>IDManager</ejb-name>
+      <jndi-name>IDManagerHome</jndi-name>
+      <local-jndi-name>IDManagerLocalHome</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </entity>
+
+
+   <session>
+      <ejb-name>SB_AboutMe</ejb-name>
+      <jndi-name>SB_AboutMeHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_ViewBidHistory</ejb-name>
+      <jndi-name>SB_ViewBidHistoryHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_StoreBid</ejb-name>
+      <jndi-name>SB_StoreBidHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_PutBid</ejb-name>
+      <jndi-name>SB_PutBidHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_StoreBuyNow</ejb-name>
+      <jndi-name>SB_StoreBuyNowHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_BuyNow</ejb-name>
+      <jndi-name>SB_BuyNowHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_RegisterUser</ejb-name>
+      <jndi-name>SB_RegisterUserHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_RegisterItem</ejb-name>
+      <jndi-name>SB_RegisterItemHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_StoreComment</ejb-name>
+      <jndi-name>SB_StoreCommentHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_PutComment</ejb-name>
+      <jndi-name>SB_PutCommentHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_ViewUserInfo</ejb-name>
+      <jndi-name>SB_ViewUserInfoHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_ViewItem</ejb-name>
+      <jndi-name>SB_ViewItemHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_SearchItemsByRegion</ejb-name>
+      <jndi-name>SB_SearchItemsByRegionHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_SearchItemsByCategory</ejb-name>
+      <jndi-name>SB_SearchItemsByCategoryHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_BrowseRegions</ejb-name>
+      <jndi-name>SB_BrowseRegionsHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+        <ejb-name>SB_BrowseCategories</ejb-name>
+        <jndi-name>SB_BrowseCategoriesHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>SB_Auth</ejb-name>
+      <jndi-name>SB_AuthHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+    
+     <session>
+      <ejb-name>Query</ejb-name>
+      <jndi-name>QueryHome</jndi-name>
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </session>
+
+  </enterprise-beans>
+
+
+  <resource-managers>
+
+    <resource-manager>
+      <res-name>rubis</res-name>
+      <res-jndi-name>java:/rubis</res-jndi-name>
+    </resource-manager>
+
+  </resource-managers>
+
+<!--
+  <container-configurations>
+
+    <container-configuration>
+      <container-name />
+      <container-invoker />
+      <container-interceptors />
+      <instance-pool />
+      <instance-cache />
+      <persistence-manager />
+      <transaction-manager />
+      <container-invoker-conf />
+      <container-cache-conf />
+      <container-pool-conf />
+      <commit-option />
+      <optiond-refresh-rate />
+      <security-domain />
+    </container-configuration>
+
+  </container-configurations>
+-->
+
+</jboss>
+

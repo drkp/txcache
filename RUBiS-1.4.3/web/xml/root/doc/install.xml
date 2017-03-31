@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>Installation and Configuration</title>
+    <filename>install.xml</filename>
+    <pathtoroot>..</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="Installation and Configuration">
+	<ul>
+		<li><strong><a href="install.html#structure">RUBiS files structure</a></strong></li>
+		<li><strong><a href="config.html">Configuration</a></strong></li>
+		<li><strong><a href="compile_and_run.html">Compiling and running</a></strong></li>
+	</ul>
+    </s1>
+
+
+    <s1 name="RUBiS Files Structure" anchor="structure">
+      <p>The directory tree of RUBiS is organized as follow:</p>
+
+      <table border="1" width="100%">
+      <tr>
+      <td><code>/RUBiS</code></td>
+
+      <td>This directory contains the main Makefile/build.xml file and the license agreement.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/config.mk</code></td>
+      
+      <td>Makefile configuration file (if you use make you should edit this file to match your
+      configuration)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/build.properties</code></td>
+      
+      <td>Ant build files configuration file (if you use ant you should edit this file to match your
+      configuration)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/bench</code></td>
+
+      <td>contains the results of the measurements and the scripts to generate
+      graphs and statistics.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/Client</code></td>
+
+      <td>Benchmark client to simulate clients and perform measurements.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/database</code></td>
+
+      <td>contains the SQL files among with the lists of regions and categories
+      used to generate the database data.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_HTML</code></td>
+
+      <td>contains the html files for the version of RUBiS that is designed to
+      be used with EJB only.</td>
+      </tr>
+      
+      <tr>
+      <td><code>/RUBiS/ejb_rubis_web</code></td>
+
+      <td>contains the html files for the EJB versions of RUBiS structured in war format. The jar file
+      containing the servlets (generated during compilation) should be place in the WEB_INF/lib directory.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_DB_id</code></td>
+
+      <td>EJB version of RUBiS with entity beans Container Managed Persistence
+      and database generated Primary Keys (works only with JOnAS, JBoss does
+      not support this implementation)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_EntityBean_id</code></td>
+
+      <td>EJB version of RUBiS with entity beans CMP and bean generated Primary
+      Keys (works with JOnAS and JBoss)</td>
+      </tr>
+
+     <tr>
+      <td><code>/RUBiS/EJB_EntityBean_id_BMP</code></td>
+
+      <td>EJB version of RUBiS with entity beans BMP and bean generated Primary
+      Keys (works with JOnAS and JBoss)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_Session_facade</code></td>
+
+      <td>EJB version of RUBiS with fa&#231;ade Session beans and entity beans
+      CMP (works with JOnAS and JBoss)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_SessionBean</code></td>
+
+      <td>EJB version of RUBiS with session beans and Bean Managed Persistence
+      (works with JOnAS and JBoss)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_locale_remote</code></td>
+
+      <td>EJB version of RUBiS with fa&#231;ade Session beans and entity beans
+      CMP1.1 using EJB2.0 local interfaces (works with JOnAS and JBoss)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/MDB</code></td>
+
+      <td>EJB version of RUBiS with Message Driven Beans (works with JOnAS
+       and JBoss)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_locale_remote_CMP2.0</code></td>
+
+      <td>EJB version of RUBiS with fa&#231;ade Session beans and entity beans
+      CMP2.0 using local interfaces (works with JBoss)</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/PHP</code></td>
+
+      <td>contains the html files and PHP scripts for the version of RUBiS that
+      is designed to be used with PHP only.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/Servlets</code></td>
+
+      <td>The Java Servlets version of RUBiS that is designed to be
+      used with Java servlets only.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/Servlet_HTML</code></td>
+
+      <td>contains the html files for the version of RUBiS that is designed to
+      be used with Java servlets only.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/workload</code></td>
+
+      <td>contains the files that describes the workload of the bidding system.
+      We designed various patterns of request distribution. The browse_only_transition
+      pattern simulate user's behavior that only generate read requests from
+      the database.
+      <br></br>The default_transition pattern is a mix of read and write requests.
+      It simulates a user who looks for items and categories but also who can
+      sell or put bids on items.</td>
+      </tr>
+      </table>
+
+      <p>For each EJB version (DB_id, EntityBean_id, Session_facade or SessionBean)
+      the directory tree is as follow:</p>
+
+      <table border="1" width="100%">
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName</code></td>
+
+      <td>contains the Makefile, build.xml file for ant, the mysql and jonas properties files and the
+      scripts to start and stop Tomcat and JOnAS.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName/edu/rice/rubis/beans</code></td>
+
+      <td>contains the source code of the beans.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName/edu/rice/rubis/beans/servlets</code></td>
+
+      <td>contains the source code of the servlets used to access the beans.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName/edu/META-INF</code></td>
+
+      <td>contains the deployment descriptors of the EJB server you are currently
+      using (the files are automatically copied in this directory when using
+      the Makefile to compile).</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName/edu/META-INF/JBoss</code></td>
+
+      <td>contains the deployment descriptors for JBoss: ejb-jar.xml, jboss.xml
+      and jaws.xml or jbosscmp-jdbc.xml.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName/edu/META-INF/JOnAS</code></td>
+
+      <td>contains the deployment descriptors for JOnAS: ejb-jar.xml and jonas-ejb-jar.xml.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/EJB_VersionName/doc</code></td>
+
+      <td>contains the code documentation in the javadoc format.</td>
+      </tr>
+      </table>
+
+      <p>For the Java Servlets version the directory tree is as follow:
+      </p>
+      <table border="1" width="100%" >
+      <tr>
+      <td><code>/RUBiS/Servlets</code></td>
+
+      <td>contains the Makefile, build.xml file for ant and the scripts to start and stop Tomcat.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/Servlets/edu/rice/rubis/servets</code></td>
+
+      <td>contains the source code of the servlets.</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/Servlets/doc</code></td>
+
+      <td>contains the code documentation in javadoc format.</td>
+      </tr>
+      </table>
+
+    </s1>
+
+
+  </body>
+
+</document>

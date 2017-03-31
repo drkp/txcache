@@ -1,0 +1,744 @@
+<?xml version="1.0"?>
+<jonas-ejb-jar>
+
+    <jonas-session>
+        <ejb-name>Query</ejb-name>
+        <jndi-name>QueryHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-entity>
+        <ejb-name>Category</ejb-name>
+        <jndi-name>CategoryHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>categories</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>name</field-name>
+                <jdbc-field-name>name</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByName</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where name=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllCategories</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>20</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>Region</ejb-name>
+        <jndi-name>RegionHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>regions</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>name</field-name>
+                <jdbc-field-name>name</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByName</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where name=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllRegions</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>62</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>User</ejb-name>
+        <jndi-name>UserHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>users</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>firstName</field-name>
+                <jdbc-field-name>firstname</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>lastName</field-name>
+                <jdbc-field-name>lastname</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>nickName</field-name>
+                <jdbc-field-name>nickname</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>password</field-name>
+                <jdbc-field-name>password</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>email</field-name>
+                <jdbc-field-name>email</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>rating</field-name>
+                <jdbc-field-name>rating</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>balance</field-name>
+                <jdbc-field-name>balance</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>creationDate</field-name>
+                <jdbc-field-name>creation_date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>regionId</field-name>
+                <jdbc-field-name>region</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByNickName</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where nickname=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllUsers</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>100</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>Item</ejb-name>
+        <jndi-name>ItemHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>items</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>name</field-name>
+                <jdbc-field-name>name</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>description</field-name>
+                <jdbc-field-name>description</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>initialPrice</field-name>
+                <jdbc-field-name>initial_price</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>quantity</field-name>
+                <jdbc-field-name>quantity</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>reservePrice</field-name>
+                <jdbc-field-name>reserve_price</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>buyNow</field-name>
+                <jdbc-field-name>buy_now</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>nbOfBids</field-name>
+                <jdbc-field-name>nb_of_bids</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>maxBid</field-name>
+                <jdbc-field-name>max_bid</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>startDate</field-name>
+                <jdbc-field-name>start_date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>endDate</field-name>
+                <jdbc-field-name>end_date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>sellerId</field-name>
+                <jdbc-field-name>seller</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>categoryId</field-name>
+                <jdbc-field-name>category</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findBySeller</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where seller=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByCategory</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where category=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findCurrentByCategory</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where category=? AND end_date>=NOW()</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findUserCurrentSellings</method-name>
+                </jonas-method>
+                <jdbc-where-clause>WHERE items.seller=? AND items.end_date>=NOW()</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+           <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findUserPastSellings</method-name>
+                </jonas-method>
+                <jdbc-where-clause>WHERE items.seller=? AND TO_DAYS(NOW()) - TO_DAYS(items.end_date) &lt; 30</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllItems</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>100</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>OldItem</ejb-name>
+        <jndi-name>OldItemHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>old_items</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>name</field-name>
+                <jdbc-field-name>name</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>description</field-name>
+                <jdbc-field-name>description</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>initialPrice</field-name>
+                <jdbc-field-name>initial_price</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>quantity</field-name>
+                <jdbc-field-name>quantity</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>reservePrice</field-name>
+                <jdbc-field-name>reserve_price</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>buyNow</field-name>
+                <jdbc-field-name>buy_now</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>nbOfBids</field-name>
+                <jdbc-field-name>nb_of_bids</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>maxBid</field-name>
+                <jdbc-field-name>max_bid</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>startDate</field-name>
+                <jdbc-field-name>start_date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>endDate</field-name>
+                <jdbc-field-name>end_date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>sellerId</field-name>
+                <jdbc-field-name>seller</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>categoryId</field-name>
+                <jdbc-field-name>category</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findBySeller</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where seller=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByCategory</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where category=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findCurrentByCategory</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where category=? AND end_date>=NOW()</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findUserCurrentSellings</method-name>
+                </jonas-method>
+                <jdbc-where-clause>WHERE old_items.seller=? AND old_items.end_date>=NOW()</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+           <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findUserPastSellings</method-name>
+                </jonas-method>
+                <jdbc-where-clause>WHERE old_items.seller=? AND TO_DAYS(NOW()) - TO_DAYS(old_items.end_date) &lt; 30</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllOldItems</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>10</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>Comment</ejb-name>
+        <jndi-name>CommentHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>comments</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>fromUserId</field-name>
+                <jdbc-field-name>from_user_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>toUserId</field-name>
+                <jdbc-field-name>to_user_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>itemId</field-name>
+                <jdbc-field-name>item_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>rating</field-name>
+                <jdbc-field-name>rating</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>date</field-name>
+                <jdbc-field-name>date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>comment</field-name>
+                <jdbc-field-name>comment</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByItem</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where item_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByFromUser</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where from_user_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByToUser</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where to_user_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllComments</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>20</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>Bid</ejb-name>
+        <jndi-name>BidHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>bids</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>userId</field-name>
+                <jdbc-field-name>user_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>itemId</field-name>
+                <jdbc-field-name>item_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>qty</field-name>
+                <jdbc-field-name>qty</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>bid</field-name>
+                <jdbc-field-name>bid</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>maxBid</field-name>
+                <jdbc-field-name>max_bid</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>date</field-name>
+                <jdbc-field-name>date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByItem</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where item_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByUser</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where user_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllBids</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>10</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>BuyNow</ejb-name>
+        <jndi-name>BuyNowHome</jndi-name>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/IDManager</ejb-ref-name>
+            <jndi-name>IDManagerHome</jndi-name>
+        </jonas-ejb-ref>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>buy_now</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+                <jdbc-field-name>id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>buyerId</field-name>
+                <jdbc-field-name>buyer_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>itemId</field-name>
+                <jdbc-field-name>item_id</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>qty</field-name>
+                <jdbc-field-name>qty</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>date</field-name>
+                <jdbc-field-name>date</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByItem</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where item_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByUser</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where buyer_id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+          <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findUserBuyNow</method-name>
+                </jonas-method>
+                <jdbc-where-clause>WHERE buy_now.buyer_id=? AND TO_DAYS(NOW()) - TO_DAYS(buy_now.date)&lt;=30</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findAllBuyNows</method-name>
+                </jonas-method>
+                <jdbc-where-clause></jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>5</min-pool-size>
+    </jonas-entity>
+
+    <jonas-entity>
+        <ejb-name>IDManager</ejb-name>
+        <jndi-name>IDManagerHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+
+        <jdbc-mapping>
+            <jndi-name>mysql</jndi-name>
+            <jdbc-table-name>ids</jdbc-table-name>
+            <cmp-field-jdbc-mapping>
+                <field-name>id</field-name>
+		<jdbc-field-name>id</jdbc-field-name>	
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>categoryCount</field-name>
+                <jdbc-field-name>category</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>regionCount</field-name>
+                <jdbc-field-name>region</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>userCount</field-name>
+                <jdbc-field-name>users</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>itemCount</field-name>
+                <jdbc-field-name>item</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>commentCount</field-name>
+                <jdbc-field-name>comment</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>bidCount</field-name>
+                <jdbc-field-name>bid</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+            <cmp-field-jdbc-mapping>
+                <field-name>buyNowCount</field-name>
+                <jdbc-field-name>buyNow</jdbc-field-name>
+            </cmp-field-jdbc-mapping>
+
+            <finder-method-jdbc-mapping>
+                <jonas-method>
+                    <method-name>findByPrimaryKey</method-name>
+                </jonas-method>
+                <jdbc-where-clause>where id=?</jdbc-where-clause>
+            </finder-method-jdbc-mapping>
+
+        </jdbc-mapping>
+
+        <!-- JONAS 2.4 specific features -->
+        <shared>False</shared>
+        <is-modified-method-name>isModified</is-modified-method-name>
+        <min-pool-size>20</min-pool-size>
+    </jonas-entity>
+
+</jonas-ejb-jar>

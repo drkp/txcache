@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------------------
+# JOnAS: Java(TM) Open Application Server
+# Copyright (C) 1999 Bull S.A.
+# Contact: jonas-team@objectweb.org
+# 
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or any later version.
+# 
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+# 
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
+# USA
+#
+# Initial developer(s): ____________________________________.
+# Contributor(s): ______________________________________.
+#
+# ---------------------------------------------------------------------------
+# $Id: jonas.properties2.5,v 1.1 2002/12/06 14:23:31 margueri Exp $
+# ---------------------------------------------------------------------------
+
+
+###################### JOnAS Server configuration
+#
+#  The current file is in the <jonas-install>/config directory.
+#
+
+
+#  Set the name of the JOnAS Server
+jonas.name			jonas
+jonas.orb.port			0
+jonas.log.configfile 		trace.properties
+jonas.services			registry,jtm,dbm,ejb
+
+#
+###################### JOnAS Registry service configuration
+#
+jonas.service.registry.mode		collocated
+
+#
+###################### JOnAS EJB Container service configuration
+#
+jonas.service.ejb.class		org.objectweb.jonas.container.EJBServiceImpl
+jonas.service.ejb.descriptors	rubis.jar
+
+#
+###################### JOnAS DBM Database service configuration
+#
+jonas.service.dbm.class		org.objectweb.jonas.dbm.DataBaseServiceImpl
+jonas.service.dbm.datasources	mysql
+
+
+#
+###################### JOnAS JTM Transaction service configuration
+#
+
+jonas.service.jtm.class		org.objectweb.jonas.jtm.TransactionServiceImpl
+jonas.service.jtm.remote	false
+jonas.service.jtm.timeout	300

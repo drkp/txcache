@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>License</title>
+    <filename>license.xml</filename>
+    <pathtoroot>.</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="Licence">
+
+      <p>RUBiS is licensed under the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a>.</p>
+
+    </s1>
+    
+  </body>
+  
+</document>
+

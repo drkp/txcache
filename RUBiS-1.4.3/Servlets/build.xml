@@ -1,0 +1,109 @@
+
+<project name="Servlets" default="dist" basedir=".">
+  <!-- Servlets Ant build file -->
+
+  <!-- set global properties for this build -->
+  <property file="../build.properties" />
+  <property name="servlets.html" value="../Servlet_HTML" />
+  
+<!-- ====================================================================== -->
+<!-- Init -->
+<!-- ====================================================================== -->
+
+  <!-- init rule creates build directory -->
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${classes.dir}"/>
+  </target>
+  
+<!-- ====================================================================== -->
+<!-- Servlets -->
+<!-- ====================================================================== -->
+  
+   <!-- The classpath to be used to compile  -->
+  <path id="base.classpath">
+    <pathelement location="${classes.dir}" />
+    <fileset dir="${j2ee}/lib">
+      <include name="j2ee.jar"/>
+    </fileset>
+  </path>
+
+  <!-- Creates a jar file containing the servlets -->
+  <target name="jar" depends="init, compile">
+     <jar destfile="${dist}/rubis_servlets.jar">
+	<fileset dir="${classes.dir}"
+		 includes="edu/rice/rubis/servlets/*.class"/>
+    </jar>
+  </target>
+
+  <!-- Create a war file-->
+  <target name="war" depends="init, compile, jar">
+    <copy file="${dist}/rubis_servlets.jar" todir="${servlets.html}/WEB-INF/lib"/>
+     <war destfile="${dist}/rubis_servlets.war" webxml="${servlets.html}/WEB-INF/web.xml" basedir="${web.dir}">
+	<fileset dir="${classes.dir}"
+		 includes="*"/>
+    </war>
+  </target>
+  
+    <!-- Dist rule -->
+  <target name="dist" depends="init, compile, jar, war">
+  </target>
+  
+  <!-- compile rule: Compile the beans and the servlets -->
+  <target name="compile" depends="init">
+    <javac srcdir="${src}"
+	   includes="edu/rice/rubis/servlets/*"
+	   destdir="${classes.dir}"
+	   classpath="${build.classpath}"
+	   depend="yes"
+	   deprecation="yes">
+    <classpath refid="base.classpath" />
+    </javac>
+  </target>
+
+<!-- ====================================================================== -->
+<!-- Javadoc -->
+<!-- ====================================================================== -->
+
+  <!-- Generate Javadoc documentation -->
+  <target name="doc">
+     <mkdir dir="docs/api"/>
+     <javadoc classpathref="base.classpath"
+           packagenames="edu.rice.rubis.*.*"
+           sourcepath="."
+           defaultexcludes="yes"
+           destdir="docs/api"
+           author="true"
+           version="true"
+           use="true"
+           windowtitle="RUBiS API">
+       <doctitle><![CDATA[<h1>RUBiS API</h1>]]></doctitle>
+       <bottom><![CDATA[<i>Copyright &#169; 2002 - ObjectWeb Consortium - All Rights Reserved.</i>]]></bottom>
+     </javadoc>
+  </target>
+  
+<!-- ====================================================================== -->
+<!-- Clean -->
+<!-- ====================================================================== -->
+
+  <target name="clean">
+    <!-- Delete the ${classes.dir} and ${dist} directory trees -->
+    <delete dir="${classes.dir}"/>
+    <delete>
+      <fileset dir="${dist}" includes="rubis_servlets.jar"/>
+    </delete>
+    <delete>
+      <fileset dir="${dist}" includes="rubis_servlets.war"/>
+    </delete>
+    <delete>
+      <fileset dir="edu" includes="**/*.class"/>
+    </delete>
+  </target>
+  
+  <target name="clean-doc">
+    <delete dir="docs/api"/>
+  </target>
+</project>
+

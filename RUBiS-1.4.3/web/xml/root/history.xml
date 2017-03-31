@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>History</title>
+    <filename>history.xml</filename>
+    <pathtoroot>.</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="History">
+
+ 	<s2 name="March 24th 2004: Howto install RUBiS with JOnAS">
+        <p>A howto for installing RUBiS with <a href="http://jonas.objectweb.org/">JOnAS</a>
+         is now available in the documentation 
+         thanks to Jacques Cayuela from the JOnAS project.</p>
+    </s2>        
+    
+    <s2 name="RUBiS version 1.4.2 (March 2004)">
+        <p>This version includes a Session Facade with EJB 2.0 Entity Beans
+         implementation and updated build.xml files for JOnAS.</p>
+      </s2>
+    
+    <s2 name="February 4th 2004: Online Demo Available">
+
+    <p>An online demo of RUBiS is now <a
+    href="http://demos.objectweb.org/rubis/">available</a>. This demo
+    is powered by <a href="http://jonas.objectweb.org/">JOnAS</a>
+    3.3.1 and uses the EJB CMP 2.0 version of the RUBiS benchmark
+    (latest CVS version).</p>
+
+    </s2>
+    
+    <s2 name="New Contributions to RUBiS (December 2003)">
+    <p>Mark Brody and George Candea from <a href="http://www.stanford.edu/">
+       Stanford University</a> wrote a 
+       <a href="http://crash.stanford.edu/resources/rubis.html">guide to install 
+       RUBiS 1.4.1 on JBoss 3.2.2</a>.<br></br>
+       Daniel Pfeifer from <a href="http://www.ipd.uka.de/">University of Karlsruhe</a>
+       contributed his version of RUBiS which is fully controlled by ANT and includes
+       a client emulator for Windows.
+       The things he changed in RUBiS for his experiments are described in Section 5.1 of 
+       his <a href="http://www.ipd.uka.de/~pfeifer/publications/techreport_2003_11.pdf">
+       paper</a>. <a href="http://forge.objectweb.org/project/showfiles.php?group_id=44">
+       Download</a><br></br>
+       Remigius Kuzyna from <a href="http://www.uni-muenster.de/en/">University of
+       Muenster</a> added some changes to the client emulator: LogWriter, 
+       initialization methods, etc. 
+       <a href="http://forge.objectweb.org/project/showfiles.php?group_id=44">
+       Download</a><br></br>
+    </p>
+    </s2>
+    
+    
+    <s2 name="RUBiS version 1.4.1 (August 2003)">
+        <p>Fixed Javadoc generation.</p>
+      </s2>
+    
+      <s2 name="RUBiS version 1.4 (May 2003)">
+        <p>Tested with Tomcat 4.1.24, Jboss 3.2 and JOnAS 3.1.</p>
+      </s2>
+
+      <s2 name="RUBiS version 1.3 (6 Dec 2002)">
+      <p>Added:</p>
+	  <ul>
+		<li>Ant build.xml and build.properties files</li>
+		<li>support to generate war file</li>
+		<li>EJB implementation with Message Driven Beans (supports JBoss/JOnAS/MySQL)</li>
+	  </ul>
+      </s2>
+
+      <s2 name="RUBiS version 1.2 (10 Sep 2002)">
+      <p>This distribution includes the source code of the following implementations:</p>
+	  <ul>
+		<li>Distributed Java Client emulator (works with PHP, Servlets and EJB)</li>
+		<li>PHP</li>
+		<li>Servlets only</li>
+		<li>EJB implementation with Session Beans (supports JBoss/JOnAS/MySQL)</li>
+		<li>EJB implementation with Entity Beans with Container Managed Persistence and Database generated Primary Keys (supports JOnAS/MySQL/PostgreSQL, will not work with JBoss)</li>
+		<li>EJB implementation with Entity Beans with Container Managed Persistence and Bean generated Primary Keys (supports JBoss/JOnAS/MySQL/PostgreSQL)</li>
+		<li>EJB implementation with Entity Beans with Bean Managed Persistence (supports JBoss/JOnAS/MySQL)</li>
+		<li>EJB implementation with facade Session Beans (supports JBoss/JOnAS/MySQL/PostgreSQL)</li>
+		<li>EJB implementation with facade Session Beans and EJB 2.0 local interfaces Entity Beans (supports JBoss/JOnAS/MySQL)</li>
+	  </ul>
+      </s2>
+      <s2 name="RUBiS version 1.1 (25 Mar 2002)">
+        <p>Added PostgreSQL and EB BMP support.</p>
+      </s2>
+      <s2 name="RUBiS version 1.0 (8 Feb 2002)">
+        <p>Client emulator, PHP, Servlets only and EJB implementations (SB, EB CMP, Session Facade).</p>
+      </s2>
+    </s1>
+  </body>
+
+</document>

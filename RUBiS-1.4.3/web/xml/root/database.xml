@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>Database Description</title>
+    <filename>database.xml</filename>
+    <pathtoroot>.</pathtoroot>
+  </properties>
+
+  <body>
+
+<s1 name="Database description">
+
+<ul>
+<li>
+<anchor name="users"></anchor><strong>Table users</strong></li>
+</ul>
+<p><code>CREATE TABLE users (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> firstname</code></td>
+<td><code> VARCHAR(20),</code></td>
+</tr>
+<tr>
+<td><code> lastname</code></td>
+<td><code> VARCHAR(20),</code></td>
+</tr>
+<tr>
+<td><code> nickname</code></td>
+<td><code> VARCHAR(20) NOT NULL UNIQUE,</code></td>
+</tr>
+<tr>
+<td><code> password</code></td>
+<td><code> VARCHAR(20) NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> email</code></td>
+<td><code> VARCHAR(50) NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> rating</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> balance</code></td>
+<td><code> FLOAT,</code></td>
+</tr>
+<tr>
+<td><code> creation_date</code></td>
+<td><code> DATETIME,</code></td>
+</tr>
+<tr>
+<td><code> region</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> PRIMARY KEY(id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX auth (nickname,password),</code></td>
+</tr>
+<tr>
+<td><code> INDEX region_id (region)</code></td>
+</tr>
+</table>
+<p><code>);</code></p>
+
+
+<ul>
+<li>
+<anchor name="items"></anchor><strong>Table items</strong></li>
+</ul>
+<p><code>CREATE TABLE items (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> name</code></td>
+<td><code> VARCHAR(100),</code></td>
+</tr>
+<tr>
+<td><code> description</code></td>
+<td><code> TEXT,</code></td>
+</tr>
+<tr>
+<td><code> initial_price</code></td>
+<td><code> FLOAT UNSIGNED NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> quantity</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> reserve_price</code></td>
+<td><code> FLOAT UNSIGNED DEFAULT 0,</code></td>
+</tr>
+<tr>
+<td><code> buy_now</code></td>
+<td><code> FLOAT UNSIGNED DEFAULT 0,</code></td>
+</tr>
+<tr>
+<td><code> nb_of_bids</code></td>
+<td><code> INTEGER UNSIGNED DEFAULT 0,</code></td>
+</tr>
+<tr>
+<td><code> max_bid</code></td>
+<td><code> FLOAT UNSIGNED DEFAULT 0,</code></td>
+</tr>
+<tr>
+<td><code> start_date</code></td>
+<td><code> DATETIME,</code></td>
+</tr>
+<tr>
+<td><code> end_date</code></td>
+<td><code> DATETIME,</code></td>
+</tr>
+<tr>
+<td><code> seller</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr><td><code> category</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> PRIMARY KEY(id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX seller_id (seller),</code></td>
+</tr>
+<tr>
+<td><code> INDEX category_id (category)</code></td>
+</tr>
+</table>
+<p><code> );</code></p>
+
+
+<ul>
+<li>
+<anchor name="categories"></anchor><strong>Table categories</strong></li>
+</ul>
+
+<p><code>CREATE TABLE categories (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> name</code></td>
+<td><code> VARCHAR(50),</code></td>
+</tr>
+<tr>
+<td><code> PRIMARY KEY(id)</code></td>
+</tr>
+</table>
+<p><code> );</code></p>
+
+
+<ul>
+<li>
+<anchor name="regions"></anchor><strong>Table regions</strong></li>
+</ul>
+<p><code>CREATE TABLE regions (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> name</code></td>
+<td><code> VARCHAR(20),</code></td>
+</tr>
+<tr>
+<td><code> PRIMARY KEY(id)</code></td>
+</tr>
+</table>
+<p><code> );</code></p>
+
+
+<ul>
+<li>
+<anchor name="bids"></anchor><strong>Table bids</strong></li>
+</ul>
+<p><code>CREATE TABLE bids (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> user_id</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> item_id</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> qty</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> bid</code></td>
+<td><code> FLOAT UNSIGNED NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> max_bid</code></td>
+<td><code> FLOAT UNSIGNED NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> date</code></td>
+<td><code> DATETIME</code></td>
+</tr>
+<tr>
+<td><code> INDEX item (item_id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX user (user_id)</code></td>
+</tr>
+</table>
+<p><code> );</code></p>
+
+
+<ul>
+<li>
+<anchor name="buy_now"></anchor><strong>Table buy_now</strong></li>
+</ul>
+
+<p><code>CREATE TABLE buy_now (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> buyer_id</code></td>
+<td><code>  INTEGER UNSIGNED NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> item_id </code></td>
+<td><code> INTEGER UNSIGNED NOT NULL,</code></td>
+</tr>
+<tr>
+<td><code> qty</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> date</code></td>
+<td><code> DATETIME,</code></td>
+</tr>
+<tr>
+<td><code> PRIMARY KEY(id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX buyer (buyer_id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX item (item_id)</code></td>
+</tr>
+</table>
+<p><code> );</code></p>
+
+
+<ul>
+<li>
+<anchor name="comments"></anchor><strong>Table comments</strong></li>
+</ul>
+<p><code>CREATE TABLE comments (</code></p>
+<table border="0" width="50%" >
+<tr>
+<td><code> id</code></td>
+<td><code> INTEGER UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,</code></td>
+</tr>
+<tr>
+<td><code> from_user_id</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> to_user_id</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> item_id</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> rating</code></td>
+<td><code> INTEGER,</code></td>
+</tr>
+<tr>
+<td><code> date</code></td>
+<td><code> DATETIME,</code></td>
+</tr>
+<tr>
+<td><code> comment</code></td>
+<td><code> TEXT</code></td>
+</tr>
+<tr>
+<td><code> PRIMARY KEY(id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX from_user (from_user_id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX to_user (to_user_id),</code></td>
+</tr>
+<tr>
+<td><code> INDEX item (item_id)</code></td>
+</tr>
+</table>
+<p><code> );</code></p>
+
+
+</s1>
+</body>
+</document>

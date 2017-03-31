@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>RUBiS Configuration</title>
+    <filename>config.xml</filename>
+    <pathtoroot>..</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="Configuration" anchor="config">
+
+	<ul>
+		<li><strong><a href="config.html#config_apache">Configuring Apache HTTP server</a></strong></li>
+		<li><strong><a href="config.html#config_tomcat">Configuring Tomcat servlets server</a></strong></li>
+		<li><strong><a href="config.html#config_jboss">Configuring JBoss EJB server</a></strong></li>
+		<li><strong><a href="config.html#config_jonas">Configuring JOnAS EJB server</a></strong></li>
+		<li><strong><a href="config.html#rubis_prop">Setting up rubis.properties</a></strong></li>
+	</ul>
+     </s1>
+
+      <s1 name="Configuring Apache HTTP server" anchor="config_apache">
+      <s2 name="PHP version">
+      <p>If you want to use the default properties file provided with RUBiS,
+      you just have to set your <code>DocumentRoot</code> (in Apache's conf/httpd.conf
+      file) to RUBiS distribution home directory.</p>
+      <p>Example: <code>DocumentRoot /home/RUBiS</code></p>
+      <p>If you don't want to modify your <code>DocumentRoot</code>, RUBiS PHP directory
+      must be accessible through a certain path that you'll have to set in the
+      <a href="config.html#rubis_prop">rubis.properties</a>
+      file.</p>
+      </s2>
+      <s2 name="Servlets and EJB versions">
+      <p>Ensure that the Servlet_HTML or ejb_rubis_web directories are accessible
+      through your Apache server (same procedure as for PHP). Then configure
+      the <a href="config.html#config-tomcat">Tomcat</a> servlet server.</p>
+      <p><strong>Configure mod_jk:</strong></p>
+      <ul>
+		<li>Add the file mod_jk.so and  mod_webapp.so to the /etc/httpd/libexec directory.</li>
+		<li>At the end of your httpd.conf add:</li>
+      </ul>
+      <p>
+      <code>LoadModule jk_module libexec/mod_jk.so</code><br></br>
+      <code>AddModule mod_jk.c</code><br></br>
+      <code>JkWorkersFile ${CATALINA_HOME}/conf/workers.properties</code><br></br>
+      <code>JkLogFile /etc/httpd/logs/mod_jk.log</code><br></br>
+      <code>JkLogLevel info</code><br></br>
+      <code>JkMount /ejb_rubis_web/servlet/* ajp13</code><br></br>
+      <code>JkMount /servlet/* ajp13</code><br></br>
+      <code>Include ${CATALINA_HOME}/conf/auto/mod_jk.conf</code><br></br>
+      </p>
+      </s2>
+      </s1>
+
+      <s1 name="Configuring Tomcat servlets server" anchor="config_tomcat">
+      <p>Follow Tomcat documentation if you want to install RUBiS in a specific
+      directory without using default settings nor having RUBiS servlets in your
+      classpath, else just run the start/stop scripts provided
+      with RUBiS.</p>
+      <s2 name="Configure ${CATALINA_HOME}/conf/server.xml">
+      <p>In ${CATALINA_HOME}/conf/server.xml uncomment the line regarding AJP 1.3 connector if needed:</p>
+      <p><code>
+    &lt;Connector className="org.apache.ajp.tomcat4.Ajp13Connector"
+               port="8009" minProcessors="5" maxProcessors="75"
+               acceptCount="10" debug="0"/>
+      </code></p>
+      <p>After the line:</p>
+      <p><code>
+      &lt;Server port="8005" shutdown="SHUTDOWN" debug="0">
+      </code></p>
+      <p>Add:</p>
+      <p><code>
+&lt;Listener className="org.apache.ajp.tomcat4.config.ApacheConfig"
+     jkDebug="info"
+      workersConfig="catalina_home/conf/workers.properties"
+      jkLog="/catalina_home/logs/mod_jk.log"/>
+      </code></p>
+      <p>Define a context for rubis like this:</p>
+      <p>
+        <code>&lt;Context path="/ejb_rubis_web/servlet"</code><br></br> 
+                 <code>docBase="path-to-rubis/RUBiS/ejb_rubis_web"</code><br></br>
+                 <code>crossContext="false"</code><br></br>
+                 <code>debug="0" </code><br></br>
+                 <code>reloadable="false" &gt;</code><br></br>
+	  <code>&lt;Logger className="org.apache.catalina.logger.FileLogger"</code><br></br>
+                     <code>prefix="localhost_rubis_ejb_log." suffix=".txt"</code><br></br>
+        	  <code>timestamp="true"/&gt;</code><br></br>
+	  <code>&lt;Listener className="org.apache.ajp.tomcat4.config.ApacheConfig" </code><br></br>
+          <code>append="true" /&gt;</code><br></br>
+       <code> &lt;/Context&gt;</code>
+       </p>
+       <p>
+        <code>&lt;Context path="/servlet" </code><br></br>
+                 <code>docBase="path-to-rubis/RUBiS/Servlet_HTML" </code><br></br>
+                 <code>crossContext="false"</code><br></br>
+                <code>debug="0" </code><br></br>
+                 <code>reloadable="false" &gt;</code><br></br>
+	  <code>&lt;Logger className="org.apache.catalina.logger.FileLogger"</code><br></br>
+                     <code>prefix="localhost_rubis_servlet_log." suffix=".txt"</code><br></br>
+        	  <code>timestamp="true"/&gt;</code><br></br>
+	  <code>&lt;Listener className="org.apache.ajp.tomcat4.config.ApacheConfig" </code><br></br>
+          <code>append="true" /&gt;</code><br></br>
+        <code>&lt;/Context&gt;</code>
+      </p>
+      </s2>
+
+      <s2 name="Configure workers.properties (mod_jk)">
+      <p>In the ${CATALINA_HOME}/conf/worker.properties file, configure:<br></br>
+      <code>workers.tomcat_home=path-to-tomcat</code><br></br>
+      <code>workers.java_home=path-to-jdk</code><br></br>
+      <code>worker.ajp13.host=machine running tomcat</code><br></br>
+      </p>
+      </s2>
+
+      <s2 name="Set classpath">
+      <p>In ${CATALINA_HOME}/bin/setclasspath.sh replace </p>
+      <p><code>CLASSPATH="$JAVA_HOME"/lib/tools.jar</code></p>
+      <p>with </p>
+      <p><code>CLASSPATH="$JAVA_HOME"/lib/tools.jar:"$CLASSPATH"</code></p>
+      <p>so that the existing classpath will be taken in account</p>
+      </s2>
+
+      <s2 name="Specifying the EJB server and naming factory for the EJB version">
+      <p>This is done in the tomcat_start.sh script by setting the <code>CATALINA_OPTS</code>
+      environment variable.</p>
+      <p>According to the problem size you may also have to set the heap and
+      stack sizes to prevent Tomcat from running out of memory.</p>
+      <p>Example to use Tomcat with JOnAS using RMI on pouet.cs.rice.edu on
+      default port 1099, using a maximum heap size of 512MB for Tomcat and a
+      16KB stack for each thread:</p>
+      <p><code>export CATALINA_OPTS="-Xmm512m -Xss16k -Djava.naming.factory.initial=com.sun.jndi.rmi.registry.RegistryContextFactory
+      -Djava.naming.provider.url=rmi://pouet.cs.rice.edu:1099 -Djava.naming.factory.url.pkgs=org.objectweb.jonas.naming"</code></p>
+      </s2>
+
+      </s1>
+
+      <s1 name="Configuring JBoss EJB server" anchor="config_jboss">
+      <p>Edit the ${JBOSS_DIST}/server/default/conf/standardjbosscmp-jdbc.xml (EJB 2.0)
+        and/or standardjaws.xml (EJB1.1), set the <code>datasource</code> to <code>java:/rubis</code> and
+       the <code>datasource-mapping</code> to mySQL. </p>
+      <p> Add a mysql-ds.xml file to <code>${JBOSS_DIST}/server/default/deploy</code> directory.</p>
+      <p> Add the mysql driver to <code>${JBOSS_DIST}/server/default/lib</code> directory.</p>
+      </s1>
+
+      <s1 name="Configuring JOnAS EJB server" anchor="config_jonas">
+      <p>Set the <code>${JONAS_ROOT}/conf/jndi.properties</code> file to rmi or jeremie.</p>
+      <p>Configure the <code>${JONAS_ROOT}/conf/jonas.properties</code> file.</p>
+      <p>Set the path to the mysql driver in <code>${JONAS_ROOT}/bin/unix/confih_env</code>.</p>
+      <p>Add a mysql.properties file to <code>${JONAS_ROOT}/conf</code>.</p>
+      </s1>
+
+      <s1 name="Setting Up rubis.properties" anchor="rubis_prop">
+      <p>This files contains information about the http server : name, port, paths
+      for html pages and scripts for each version of RUBiS. The version of RUBiS
+      and the transition table (workload pattern) currently used and are also
+      defined in this file. Various parameters to generate data for the database
+      are provided in this file : number of users, paths to the files with
+      the list of regions and categories, percentage of items with various criteria,
+      maximum number of bids per items, maximum number of comments per user,
+      comments length, etc ... (<a href="properties_file.html">example</a>)
+      </p>
+      </s1>
+
+
+  </body>
+
+</document>

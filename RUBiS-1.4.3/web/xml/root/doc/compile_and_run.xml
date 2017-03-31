@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>Compiling and running RUBiS</title>
+    <filename>compile_and_run.xml</filename>
+    <pathtoroot>..</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="Compiling and running RUBiS">
+
+	<ul>
+		<li><strong><a href="install.html#software">Software requirements</a></strong></li>
+		<li><strong><a href="install.html#config_make">Setting up the make process</a></strong></li>
+		<li><strong><a href="install.html#config_ant">Setting up the build process for Ant</a></strong></li>
+		<li><strong><a href="install.html#run">Compiling and running</a></strong></li>
+		<li><strong><a href="install.html#tuning">Performance tuning notes</a></strong></li>
+	</ul>
+
+
+    <s2 name="Software Requirements" anchor="software">
+
+    <p>For all the versions of the auction site benchmark:</p>
+      <ul>
+       <li>
+            <a href="http://www.mysql.com/">MySQL</a> v.3.23.43-max (for both MyIsam
+            and BDB support) or compatible
+       </li>
+       <li>
+            Sun <a href="http://java.sun.com/products/">JDK</a> 1.3.1 (even with PHP
+            since the client is written in Java) or compatible
+       </li>
+       <li>
+            <a href="http://www.apache.org/">Apache</a> v.1.3.22
+       </li>
+       <li>
+            <a href="http://freshmeat.net/projects/sysstat">Sysstat utility</a>
+       </li>
+       <li>
+            <a href="http://www.gnuplot.info">Gnuplot</a> (on main client node)
+       </li>
+       <li>
+            Bash 2.04 (on main client node)
+       </li>
+      </ul>
+
+   <p>For the EJB version :</p>
+      <ul>
+       <li>
+            <a href="http://jakarta.apache.org/tomcat/">Jakarta Tomcat</a> v3.2.4 or
+            compatible
+       </li>
+       <li>
+            EJB server <a href="http://www.objectweb.org">JOnAS </a>v2.x, v3.0, 3.1 or
+            <a href="http://www.jboss.org">JBoss</a> v2.x, v3.0, 3.2
+
+       </li>
+       <li>
+            Java servlets extension for Java platform (JSDK)
+       </li>
+       <li>
+            <a href="http://java.sun.com/products/ejb/docs.html">Enterprise Java Beans
+            extension</a> for Java platform
+       </li>
+       <li>
+            MySQL JDBC driver (successfully tested with <a href="http://mmmysql.sourceforge.net/">mm-mysql</a>
+            JDBC driver)
+       </li>
+       <li>
+            EJB versions now support PostgreSQL v7.1 with the
+            provided type 4 JDBC driver
+       </li>
+      </ul>
+
+   <p>For the Java servlets version:</p>
+      <ul>
+       <li>
+            Jakarta Tomcat v3.2.4 or compatible
+       </li>
+       <li>
+            <a href="http://java.sun.com/products/servlet/index.html">Java servlets
+            extension</a> for Java platform (JSDK)
+       </li>
+       <li>
+            MySQL JDBC driver (successfully tested with <a href="http://mmmysql.sourceforge.net/">mm-mysql</a>
+            JDBC driver)
+       </li>
+      </ul>
+
+   <p>For the PHP version:</p>
+      <ul>
+       <li>
+            <a href="http://www.php.net/">PHP</a> v.4.0.6 module for Apache
+       </li>
+      </ul>
+
+    </s2>
+
+
+      <s2 name="Setting up the make process (config.mk file)" anchor="config_make">
+      <p>Various environment variables are defined in the
+      config.mk file. Each directory contains its own Makefile that includes
+      values defined in the top config.mk file. You have to set the value to
+      match your configuration:</p>
+      <p>JAVA = path to the program execution tool (java)</p>
+      <p>JAVAC = path to the java compiler (javac or jikes)</p>
+      <p>RMIC = path to the stub generator (rmic)</p>
+      <p>CLASSPATH = your classpath including path to
+      j2ee.jar and servlet.jar.</p>
+      <p>JAVADOC = path to javadoc, the documentation
+      generator</p>
+      <p>JAR = path to the jar util</p>
+      <p>EJB_SERVER = choose the EJB Server you want to
+      use (either jonas or jboss) - Warning, this value is case sensitive.</p>
+      <p>DB_SERVER = choose the Database server you will
+      use (either MySQL or PostgreSQL) - Warning, this value is case sensitive.</p>
+      </s2>
+
+      <s2 name="Setting up the build process for Ant (build.properties file)" anchor="config_ant">
+      <p>Various environment variables are defined in the
+      build.properties file. Each directory contains its own build.xml file that includes
+      values defined in the top build.properties file. You have to set the value to
+      match your configuration:</p>
+      <p>src = directory containing the source files</p>
+      <p>classes.dir = directory in which the .class files will be created</p>
+      <p>dist = directory in which the jar and war files will be created</p>
+      <p>web.dir = directory containing the html files for building a war file</p>
+      <p>ejb.server = choose the EJB Server you want to
+      use (either jonas or jboss) - Warning, this value is case sensitive.</p>
+      <p>db.server = choose the Database server you will
+      use (either MySQL or PostgreSQL) - Warning, this value is case sensitive.</p>
+      </s2>
+
+      <s2 name="Compiling and Running" anchor="run">
+      <p>From the top directory (/RUBiS/Makefile or /RUBiS/build.xml), you can use:</p>
+      <table border="1" width="100%">
+      <tr>
+      <td><code>make world or ant all</code></td>
+
+      <td>build everything (EJB, Servlets, documentation,
+      ...)</td>
+      </tr>
+      </table>
+
+      <p><strong>EJB version</strong></p>
+      <p>Setup the environment variables for the EJB server and the database server in the config.mk file for make or in the
+      build.properties file for Ant then go in the subdirectory of the version you are interested in (/RUBiS/EJB_VersionName).
+      Available commands are:</p>
+      <table border="1" width="100%">
+      <tr>
+      <td><code>make all or ant dist</code></td>
+
+      <td>compile the beans, the servlets for the EJB version
+      and the client, then copy the appropriate deployment descriptor in the
+      META-INF directoty and generate the corresponding jar files</td>
+      </tr>
+      
+      <tr>
+      <td><code>make clean or ant clean</code></td>
+
+      <td>remove class and jar files</td>
+      </tr>
+
+      <tr>
+      <td><code>make doc or ant doc</code></td>
+
+      <td>generate the javadoc documentation</td>
+      </tr>
+      </table>
+
+      <p>To use the EJB version of RUBiS you first have to configure and start
+      the <a href="config.html#config_apache">Apache HTTP server</a>, <a href="#JOnAS">JOnAS EJB
+      server</a> or JBoss EJB server and <a href="config.html#config_tomcat">Tomcat</a>.</p>
+
+      <p><strong>Servlets version</strong></p>
+      <p>Go in the subdirectory of the servlets version (/RUBiS/Servlets).
+      Available commands are:</p>
+      <table border="1" width="100%">
+      <tr>
+      <td><code>make servlets or ant dist</code></td>
+
+      <td>compile the servlets</td>
+      </tr>
+
+      <tr>
+      <td><code>make clean or ant clean</code></td>
+
+      <td>remove class files</td>
+      </tr>
+
+      <tr>
+      <td><code>make doc or ant doc</code></td>
+
+      <td>generate the javadoc documentation</td>
+      </tr>
+      </table>
+
+      <p>To use the servlet version of RUBiS, you first have to configure and
+      start the <a href="config.html#config_apache">Apache HTTP server</a> and <a href="config.html#config_tomcat">Tomcat</a>.</p>
+
+      <p><strong>PHP version</strong></p>
+      <p>To use the PHP version of RUBiS, you just have to configure and start
+      the <a href="config.html#config_apache">Apache HTTP server.</a></p>
+
+      <p><strong>Client emulator</strong></p>
+      <p>From the top directory (/RUBiS), you can use:</p>
+      <table border="1" width="100%">
+      <tr>
+      <td><code>make client or ant client</code></td>
+
+      <td>compile the client</td>
+      </tr>
+
+      <tr>
+      <td><code>make emulator or ant emulator</code></td>
+
+      <td>run the client</td>
+      </tr>
+
+      <tr>
+      <td><code>make initDB</code></td>
+
+      <td>generate data to initialize the database</td>
+      </tr>
+      </table>
+
+      <p>To select the workload and the version to use, you have to setup properly
+      your <a href="config.html#rubis_prop">rubis.properties</a> file.</p>
+
+      <p><strong>API documentation</strong></p>
+      <p>From the top directory (/RUBiS), you can use:</p>
+      <table border="1" width="100%" >
+      <tr>
+      <td><code>make doc</code></td>
+
+      <td>generate the javadoc documentation for
+      the java client, the servlets version and each EJB versions.</td>
+      </tr>
+      </table>
+
+      <p><anchor name="JOnAS"></anchor><strong>EJB server : JOnAS</strong></p>
+      <p>Go in the subdirectory of the version you are interested in:</p>
+      <table border="1" width="100%">
+      <tr>
+      <td><code>/RUBiS/VersionName/jonas_start.sh</code></td>
+
+      <td>start the EJB server</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/VersionName/jonas_stop.sh</code></td>
+
+      <td>stop the EJB server</td>
+      </tr>
+      </table>
+
+      <p><anchor name="tomcat"></anchor><strong>Servlets server : Tomcat</strong></p>
+      <p>Go in the subdirectory of the version you are interested in:</p>
+      <table border="1" width="100%" >
+      <tr>
+      <td><code>/RUBiS/VersionName/tomcat_start.sh</code></td>
+
+      <td>start Tomcat to be used with the EJB version of RUBiS. You may have
+      to alter this script to specify the node JOnAS is running on (see <a href="config.html#config_tomcat">Tomcat</a>
+      configuration).</td>
+      </tr>
+
+      <tr>
+      <td><code>/RUBiS/VersionName/tomcat_stop.sh</code></td>
+
+      <td>stop Tomcat</td>
+      </tr>
+      </table>
+      </s2>
+
+      <s2 name="Performance Tuning Notes" anchor="tuning">
+      <p>Here are some hints if you want to handle a high number of clients with
+      RUBiS:</p>
+      <ul>
+      <li>
+      increase the number of threads in Tomcat server.xml configuration file.
+      Here is an example:</li>
+      </ul>
+      <p><code>&lt;Connector className="org.apache.tomcat.service.PoolTcpConnector"></code>
+      <br></br><code>&lt;Parameter name="handler" value="org.apache.tomcat.service.connector.Ajp12ConnectionHandler"/></code>
+      <br></br><code>&lt;Parameter name="port" value="8007"/></code>
+      <br></br><code>&lt;Parameter name="max_threads" value="1024"/></code>
+      <br></br><code>&lt;Parameter name="min_spare_threads" calue="5"/></code>
+      <br></br><code>&lt;Parameter name="max_spare_threads" calue="20"/></code>
+      <br></br><code>&lt;/Connector></code></p>
+      <ul>
+      <li>
+      increase the number of connections accepted by MySQL and also cache sizes
+      when using BDB tables.</li>
+      </ul      >
+      <p>Example for MyIsam non-transactional tables: <code>bin/safe_mysqld --user=mysql
+      --set-variable max_connections=800 &amp;</code>
+      <br></br>Example for BDB transactional tables: <code>bin/safe_mysqld --user=mysql
+      --set-variable max_connections=600 -O bdb_cache_size=256M -O bdb_log_buffer_size=1M
+      -O key_buffer_size=256M -O bdb_max_lock=2000000 -O sort_buffer=32M &amp;</code></p>
+      <ul>
+      <li>
+      check the size of the database connection pool of the EJB server in mysql.properties.</li>
+      </ul>
+      </s2>
+
+    </s1>
+
+  </body>
+
+</document>

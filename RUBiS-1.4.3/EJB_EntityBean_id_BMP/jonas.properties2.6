@@ -1,0 +1,175 @@
+# ---------------------------------------------------------------------------
+# JOnAS: Java(TM) Open Application Server
+# Copyright (C) 1999 Bull S.A.
+# Contact: jonas-team@objectweb.org
+# 
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or any later version.
+# 
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+# 
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
+# USA
+#
+# Initial developer(s): ____________________________________.
+# Contributor(s): ______________________________________.
+#
+# ---------------------------------------------------------------------------
+# $Id: jonas.properties2.6,v 1.1 2002/12/06 14:02:12 margueri Exp $
+# ---------------------------------------------------------------------------
+
+
+###################### JOnAS Server configuration
+#
+#  The current file is in the <jonas-install>/config directory.
+#
+
+
+#  Set the name of the JOnAS Server
+jonas.name			jonas
+jonas.orb.port			0
+jonas.log.configfile 		trace.properties
+jonas.services			registry,jtm,dbm,ejb
+
+#
+###################### JOnAS Registry service configuration
+
+jonas.service.registry.mode	collocated		
+
+
+#
+###################### JOnAS EJB Container service configuration
+#
+jonas.service.ejb.class		org.objectweb.jonas.container.EJBServiceImpl
+
+#  Here should be given a coma-separated list of ejb-jar files names or standard XML deployment 
+#  descriptors files names.
+#  If the file name has a relative path, this path is relative from where the
+#  Application Server is launched.
+#  in case of ejb-jar files if the file is not found 
+#  it will be searched in $JONAS_ROOT/ejbjars/ directory. 
+jonas.service.ejb.descriptors	rubis.jar
+
+#  Set the XML deployment descriptors parsing mode (with or without validation)
+jonas.service.ejb.parsingwithvalidation		false
+
+#  Set the size of the thread pool used for message driven beans
+jonas.service.ejb.mdbthreadpoolsize	10
+
+#
+###################### JOnAS Web container service configuration
+#
+#  Set the name of the implementation class of the web container service.
+jonas.service.web.class	org.objectweb.jonas.web.catalina.CatalinaJWebContainerServiceImpl
+
+#  Set the list of wars that must be depoyed by the JOnAS Server at launch 
+#  time.
+#  Here should be given a coma-separated list of war files names.
+#  If the file name has a relative path, this path is relative from where the
+#  Application Server is launched.
+#  If the file is not found it will be searched in $JONAS_ROOT/webapps/ 
+#  directory. 
+jonas.service.web.descriptors	
+
+#  Set the XML deployment descriptors parsing mode for the WEB container 
+#  service (with or without validation).
+jonas.service.web.parsingwithvalidation		true
+
+#
+###################### JOnAS EAR service configuration
+#
+#  Set the name of the implementation class of the ear service.
+jonas.service.ear.class		org.objectweb.jonas.ear.EarServiceImpl
+
+#  Set the list of ears that must be depoyed by the JOnAS Server at launch 
+#  time.
+#  Here should be given a coma-separated list of ear files names.
+#  If the file name has a relative path, this path is relative from where the
+#  Application Server is launched.
+#  If the file is not found it will be searched in $JONAS_ROOT/apps/ 
+#  directory. 
+jonas.service.ear.descriptors	
+
+#  Set the XML deployment descriptors parsing mode for the EAR service
+#  (with or without validation).
+jonas.service.ear.parsingwithvalidation		true
+
+#
+###################### JOnAS DBM Database service configuration
+#
+jonas.service.dbm.class		org.objectweb.jonas.dbm.DataBaseServiceImpl
+jonas.service.dbm.datasources	mysql	
+
+
+#
+###################### JOnAS JTM Transaction service configuration
+#
+jonas.service.jtm.class		org.objectweb.jonas.jtm.TransactionServiceImpl
+jonas.service.jtm.remote	false
+jonas.service.jtm.timeout	300
+
+
+
+#
+###################### JOnAS JMS service configuration
+#
+#  Set the name of the implementation class of the jms service
+jonas.service.jms.class		org.objectweb.jonas.jms.JmsServiceImpl
+
+#  Indicates the Jms service must be started with this class for administering the mom
+jonas.service.jms.mom		org.objectweb.jonas_jms.JmsAdminForJoram
+
+#  Set the Jms Server launching mode
+#  If set to 'true'  it is launched in the same JVM as Application Server
+#  If set to 'false' Jms Server is launched in a separate JVM
+jonas.service.jms.collocated	true
+
+#  Set to the url connexion when the Jms server is not collocated
+#jonas.service.jms.url		joram://localhost:16010
+
+#  Set the list of administered objects topics to be created at Application Server launching time
+jonas.service.jms.topics	sampleTopic
+
+#  Set the list of administered objecst queuess to be created at Application Server launching time
+jonas.service.jms.queues	sampleQueue
+		
+#
+###################### JOnAS JCA resource service configuration
+#
+#  Set the name of the implementation class of the JCA resource service
+jonas.service.resource.class	org.objectweb.jonas.resource.ResourceServiceImpl
+
+#  Set the list of Resource Adapter to be used. 
+#  This enables the JOnAS server to configure the resource adapter and register it into JNDI.
+#  This property is set with a coma-separated list of Resource Adapter properties
+#  file names (without the '.properties' suffix).
+#  Ex: XXXX,YYYY (while the Resource Adapter properties file names are
+#                          XXXX.properties and YYYY.properties)
+jonas.service.resource.resources
+		
+###################### JOnAS Tomcat service configuration
+#
+#  Set the name of the implementation class of the Tomcat  
+#  EmbeddedTomcatImpl33 is implementation of tomcat service for tomcat3.3
+#  EmbeddedTomcatImpl40 is implementation of tomcat service for tomcat4.0.x
+
+#jonas.service.tomcat.class org.objectweb.jonas.tomcat.EmbeddedTomcatImpl33
+jonas.service.tomcat.class org.objectweb.jonas.tomcat.EmbeddedTomcatImpl40
+
+#  Parameter for tomcat configuration (args for tomcat.sh)
+#  For tomcat 3.3a :  -f file 	Use this file instead of server.xml
+#                     -debug level
+#                     -home dir	Use this directory as tomcat.home
+
+		     
+#jonas.service.tomcat.args -debug 20 -f .../server.xml
+
+#  For tomcat4.0.x the only possible arg is -debug
+#jonas.service.tomcat.args -debug 

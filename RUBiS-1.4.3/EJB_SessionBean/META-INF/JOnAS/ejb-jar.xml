@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
+<ejb-jar>
+    <enterprise-beans>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_ AboutMeBean</description>
+            <display-name>RUBiS SB_ AboutMeBean</display-name>
+            <ejb-name>SB_AboutMe</ejb-name>
+            <home>edu.rice.rubis.beans.SB_AboutMeHome</home>
+            <remote>edu.rice.rubis.beans.SB_AboutMe</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_AboutMeBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+	    <ejb-ref>
+                <description>This is the reference to the SB_Auth  bean</description>
+                <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.SB_AuthHome</home>
+		<remote>edu.rice.rubis.beans.SB_Auth</remote>
+		<ejb-link>SB_Auth</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_ViewBidHistory Bean</description>
+            <display-name>RUBiS SB_ViewBidHistory Bean</display-name>
+            <ejb-name>SB_ViewBidHistory</ejb-name>
+            <home>edu.rice.rubis.beans.SB_ViewBidHistoryHome</home>
+            <remote>edu.rice.rubis.beans.SB_ViewBidHistory</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_ViewBidHistoryBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+      <session>
+    	    <description>Deployment descriptor for Rubis SB_StoreBid Bean</description>
+            <display-name>RUBiS SB_StoreBid Bean</display-name>
+            <ejb-name>SB_StoreBid</ejb-name>
+            <home>edu.rice.rubis.beans.SB_StoreBidHome</home>
+            <remote>edu.rice.rubis.beans.SB_StoreBid</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_StoreBidBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+      <session>
+    	    <description>Deployment descriptor for Rubis SB_PutBid Bean</description>
+            <display-name>RUBiS SB_PutBid Bean</display-name>
+            <ejb-name>SB_PutBid</ejb-name>
+            <home>edu.rice.rubis.beans.SB_PutBidHome</home>
+            <remote>edu.rice.rubis.beans.SB_PutBid</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_PutBidBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+	    <ejb-ref>
+                <description>This is the reference to the SB_ViewItem  bean</description>
+                <ejb-ref-name>ejb/SB_ViewItem</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.SB_ViewItemHome</home>
+		<remote>edu.rice.rubis.beans.SB_ViewItem</remote>
+		<ejb-link>SB_ViewItem</ejb-link>
+            </ejb-ref>
+	    <ejb-ref>
+                <description>This is the reference to the SB_Auth  bean</description>
+                <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.SB_AuthHome</home>
+		<remote>edu.rice.rubis.beans.SB_Auth</remote>
+		<ejb-link>SB_Auth</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_StoreBuyNow Bean</description>
+            <display-name>RUBiS SB_StoreBuyNow Bean</display-name>
+            <ejb-name>SB_StoreBuyNow</ejb-name>
+            <home>edu.rice.rubis.beans.SB_StoreBuyNowHome</home>
+            <remote>edu.rice.rubis.beans.SB_StoreBuyNow</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_StoreBuyNowBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_BuyNow Bean</description>
+            <display-name>RUBiS SB_BuyNow Bean</display-name>
+            <ejb-name>SB_BuyNow</ejb-name>
+            <home>edu.rice.rubis.beans.SB_BuyNowHome</home>
+            <remote>edu.rice.rubis.beans.SB_BuyNow</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_BuyNowBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+	    <ejb-ref>
+                <description>This is the reference to the SB_Auth  bean</description>
+                <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.SB_AuthHome</home>
+		<remote>edu.rice.rubis.beans.SB_Auth</remote>
+		<ejb-link>SB_Auth</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_StoreComment Bean</description>
+            <display-name>RUBiS SB_StoreComment Bean</display-name>
+            <ejb-name>SB_StoreComment</ejb-name>
+            <home>edu.rice.rubis.beans.SB_StoreCommentHome</home>
+            <remote>edu.rice.rubis.beans.SB_StoreComment</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_StoreCommentBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_PutComment Bean</description>
+            <display-name>RUBiS SB_PutComment Bean</display-name>
+            <ejb-name>SB_PutComment</ejb-name>
+            <home>edu.rice.rubis.beans.SB_PutCommentHome</home>
+            <remote>edu.rice.rubis.beans.SB_PutComment</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_PutCommentBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+	    <ejb-ref>
+                <description>This is the reference to the SB_Auth  bean</description>
+                <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.SB_AuthHome</home>
+		<remote>edu.rice.rubis.beans.SB_Auth</remote>
+		<ejb-link>SB_Auth</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_RegisterUser Bean</description>
+            <display-name>RUBiS SB_RegisterUser Bean</display-name>
+            <ejb-name>SB_RegisterUser</ejb-name>
+            <home>edu.rice.rubis.beans.SB_RegisterUserHome</home>
+            <remote>edu.rice.rubis.beans.SB_RegisterUser</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_RegisterUserBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_ViewUserInfo Bean</description>
+            <display-name>RUBiS SB_ViewUserInfo Bean</display-name>
+            <ejb-name>SB_ViewUserInfo</ejb-name>
+            <home>edu.rice.rubis.beans.SB_ViewUserInfoHome</home>
+            <remote>edu.rice.rubis.beans.SB_ViewUserInfo</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_ViewUserInfoBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_RegisterItem Bean</description>
+            <display-name>RUBiS SB_RegisterItem Bean</display-name>
+            <ejb-name>SB_RegisterItem</ejb-name>
+            <home>edu.rice.rubis.beans.SB_RegisterItemHome</home>
+            <remote>edu.rice.rubis.beans.SB_RegisterItem</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_RegisterItemBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_ViewItem Bean</description>
+            <display-name>RUBiS SB_ViewItem Bean</display-name>
+            <ejb-name>SB_ViewItem</ejb-name>
+            <home>edu.rice.rubis.beans.SB_ViewItemHome</home>
+            <remote>edu.rice.rubis.beans.SB_ViewItem</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_ViewItemBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_SearchItemsByRegion Bean</description>
+            <display-name>RUBiS SB_SearchItemsByRegion Bean</display-name>
+            <ejb-name>SB_SearchItemsByRegion</ejb-name>
+            <home>edu.rice.rubis.beans.SB_SearchItemsByRegionHome</home>
+            <remote>edu.rice.rubis.beans.SB_SearchItemsByRegion</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_SearchItemsByRegionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_SearchItemsByCategory Bean</description>
+            <display-name>RUBiS SB_SearchItemsByCategory Bean</display-name>
+            <ejb-name>SB_SearchItemsByCategory</ejb-name>
+            <home>edu.rice.rubis.beans.SB_SearchItemsByCategoryHome</home>
+            <remote>edu.rice.rubis.beans.SB_SearchItemsByCategory</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_SearchItemsByCategoryBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_BrowseRegions Bean</description>
+            <display-name>RUBiS SB_BrowseRegions Bean</display-name>
+            <ejb-name>SB_BrowseRegions</ejb-name>
+            <home>edu.rice.rubis.beans.SB_BrowseRegionsHome</home>
+            <remote>edu.rice.rubis.beans.SB_BrowseRegions</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_BrowseRegionsBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+       <session>
+    	    <description>Deployment descriptor for Rubis SB_BrowseCategories Bean</description>
+            <display-name>RUBiS SB_BrowseCategories Bean</display-name>
+            <ejb-name>SB_BrowseCategories</ejb-name>
+            <home>edu.rice.rubis.beans.SB_BrowseCategoriesHome</home>
+            <remote>edu.rice.rubis.beans.SB_BrowseCategories</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_BrowseCategoriesBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+	    <ejb-ref>
+                <description>This is the reference to the SB_Auth  bean</description>
+                <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>		
+		<home>edu.rice.rubis.beans.SB_AuthHome</home>
+		<remote>edu.rice.rubis.beans.SB_Auth</remote>
+		<ejb-link>SB_Auth</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+        <session>
+    	    <description>Deployment descriptor for Rubis SB_Auth Bean</description>
+            <display-name>RUBiS SB_Auth Bean</display-name>
+            <ejb-name>SB_Auth</ejb-name>
+            <home>edu.rice.rubis.beans.SB_AuthHome</home>
+            <remote>edu.rice.rubis.beans.SB_Auth</remote>
+            <ejb-class>edu.rice.rubis.beans.SB_AuthBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </session>
+
+
+    </enterprise-beans>
+
+</ejb-jar>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>Team</title>
+    <filename>team.xml</filename>
+    <pathtoroot>.</pathtoroot>
+  </properties>
+  
+  <body>
+    <s1 name="Team">
+
+      <subtitle>Project Team</subtitle>
+ 
+      <p>Currently, the RUBiS team is composed of:</p>
+      <ul>
+	<li>Emmanuel Cecchet (<a href="http://www.inrialpes.fr/">INRIA</a>)</li>
+	<li>Julie Marguerite (<a href="http://www.inrialpes.fr/">INRIA</a>)</li>
+      </ul>
+
+      <subtitle>Contributors</subtitle>
+
+      <p>We would also like to thank all the following people who have also
+      contributed to RUBiS:</p>
+
+      <ul>
+	<li>Mark Brody and George Candea (<a href="http://www.stanford.edu/">Stanford University</a>)</li>
+    <li>Jacques Cayuela (<a href="http://jonas.objectweb.org/">JOnAS project</a>)</li>
+	<li>David Jordan (<a href="http://www.objectidentity.com">Object Identity Inc.</a>)</li>
+	<li>Remigius Kuzyna (<a href="http://www.uni-muenster.de/en/">University of Muenster</a>)</li>
+	<li>Daniel Pfeifer (<a href="http://www.ipd.uka.de/%7Epfeifer">University of Karlsruhe</a>)</li>
+      </ul>
+
+      <p>We apologize if we miss someone. Please <a
+      href="mailto:jmob@objectweb.org">email us</a> to correct that.</p>
+    </s1>    
+  </body>
+</document>

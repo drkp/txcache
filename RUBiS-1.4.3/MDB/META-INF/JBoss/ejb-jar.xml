@@ -1,0 +1,481 @@
+<?xml version="1.0"?>
+<ejb-jar>
+    <enterprise-beans>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_Auth bean</description>
+            <display-name>RUBiS MDB_Auth</display-name>
+            <ejb-name>MDB_Auth</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_Auth</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_BrowseRegions bean</description>
+            <display-name>RUBiS MDB_BrowseRegions</display-name>
+            <ejb-name>MDB_BrowseRegions</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_BrowseRegions</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_BrowseCategories bean</description>
+            <display-name>RUBiS MDB_BrowseCategories</display-name>
+            <ejb-name>MDB_BrowseCategories</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_BrowseCategories</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_SearchItemsByCategory bean</description>
+            <display-name>RUBiS MDB_SearchItemsByCategory</display-name>
+            <ejb-name>MDB_SearchItemsByCategory</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_SearchItemsByCategory</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_SearchItemsByRegion bean</description>
+            <display-name>RUBiS MDB_SearchItemsByRegion</display-name>
+            <ejb-name>MDB_SearchItemsByRegion</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_SearchItemsByRegion</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_ViewItem bean</description>
+            <display-name>RUBiS MDB_ViewItem</display-name>
+            <ejb-name>MDB_ViewItem</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_ViewItem</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_ViewUserInfo bean</description>
+            <display-name>RUBiS MDB_ViewUserInfo</display-name>
+            <ejb-name>MDB_ViewUserInfo</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_ViewUserInfo</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_PutComment bean</description>
+            <display-name>RUBiS MDB_PutComment</display-name>
+            <ejb-name>MDB_PutComment</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_PutComment</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_StoreComment bean</description>
+            <display-name>RUBiS MDB_StoreComment</display-name>
+            <ejb-name>MDB_StoreComment</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_StoreComment</ejb-class>
+            <transaction-type>Bean</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_RegisterUser bean</description>
+            <display-name>RUBiS MDB_RegisterUser</display-name>
+            <ejb-name>MDB_RegisterUser</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_RegisterUser</ejb-class>
+            <transaction-type>Bean</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+      <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_RegisterItem bean</description>
+            <display-name>RUBiS MDB_RegisterItem</display-name>
+            <ejb-name>MDB_RegisterItem</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_RegisterItem</ejb-class>
+            <transaction-type>Bean</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_PutBid bean</description>
+            <display-name>RUBiS MDB_PutBid</display-name>
+            <ejb-name>MDB_PutBid</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_PutBid</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_StoreBid bean</description>
+            <display-name>RUBiS MDB_StoreBid</display-name>
+            <ejb-name>MDB_StoreBid</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_StoreBid</ejb-class>
+            <transaction-type>Bean</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_ViewBidHistory bean</description>
+            <display-name>RUBiS MDB_ViewBidHistory</display-name>
+            <ejb-name>MDB_ViewBidHistory</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_ViewBidHistory</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_BuyNow bean</description>
+            <display-name>RUBiS MDB_BuyNow</display-name>
+            <ejb-name>MDB_BuyNow</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_BuyNow</ejb-class>
+            <transaction-type>Container</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_StoreBuyNow bean</description>
+            <display-name>RUBiS MDB_StoreBuyNow</display-name>
+            <ejb-name>MDB_StoreBuyNow</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_StoreBuyNow</ejb-class>
+            <transaction-type>Bean</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+       <message-driven>
+    	    <description>Deployment descriptor for Rubis MDB_AboutMe bean</description>
+            <display-name>RUBiS MDB_AboutMe</display-name>
+            <ejb-name>MDB_AboutMe</ejb-name>
+            <ejb-class>edu.rice.rubis.beans.MDB_AboutMe</ejb-class>
+            <transaction-type>Bean</transaction-type>
+	    <message-driven-destination>
+                <destination-type>javax.jms.Topic</destination-type>
+                <subscription-durability>NonDurable</subscription-durability>
+	    </message-driven-destination>
+            <acknowledge-mode>Auto-acknowledge</acknowledge-mode>
+
+            <resource-ref>
+                <res-ref-name>jdbc/rubis</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+         </message-driven>
+
+
+    </enterprise-beans>
+
+     <assembly-descriptor>
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_Auth</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_BrowseRegions</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_BrowseCategories</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_SearchItemsByCategory</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_SearchItemsByRegion</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_ViewItem</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_ViewUserInfo</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_PutComment</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+<!--
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_StoreComment</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>Required</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_RegisterUser</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>Required</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_RegisterItem</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>Required</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_StoreBid</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>Required</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_StoreBuyNow</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>Required</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_AboutMe</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>Required</trans-attribute>
+	</container-transaction>
+-->
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_PutBid</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_ViewBidHistory</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+	<container-transaction>
+    	    <method>
+                <ejb-name>MDB_BuyNow</ejb-name>
+                <method-name>*</method-name>
+	    </method>
+    	    <trans-attribute>NotSupported</trans-attribute>
+	</container-transaction>
+
+     </assembly-descriptor>
+
+</ejb-jar>

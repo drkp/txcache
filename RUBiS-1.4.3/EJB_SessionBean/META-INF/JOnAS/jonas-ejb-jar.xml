@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!DOCTYPE jonas-ejb-jar PUBLIC "-//ObjectWeb//DTD JOnAS 2.5//EN" "http://www.objectweb.org/jonas/dtds/jonas-ejb-jar_2_5.dtd">
+<jonas-ejb-jar>
+
+   <jonas-session>
+        <ejb-name>SB_AboutMe</ejb-name>
+        <jndi-name>SB_AboutMeHome</jndi-name>	
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+        <jonas-ejb-ref>
+            <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+            <jndi-name>SB_AuthHome</jndi-name>
+        </jonas-ejb-ref>
+   </jonas-session>
+
+   <jonas-session>
+        <ejb-name>SB_ViewBidHistory</ejb-name>
+        <jndi-name>SB_ViewBidHistoryHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+   <jonas-session>
+        <ejb-name>SB_StoreBid</ejb-name>
+        <jndi-name>SB_StoreBidHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+   <jonas-session>
+        <ejb-name>SB_PutBid</ejb-name>
+        <jndi-name>SB_PutBidHome</jndi-name>	
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+        <jonas-ejb-ref>
+            <ejb-ref-name>ejb/SB_ViewItem</ejb-ref-name>
+            <jndi-name>SB_ViewItemHome</jndi-name>
+        </jonas-ejb-ref>
+	<jonas-ejb-ref>
+            <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+            <jndi-name>SB_AuthHome</jndi-name>
+        </jonas-ejb-ref>
+    </jonas-session>
+
+   <jonas-session>
+        <ejb-name>SB_StoreBuyNow</ejb-name>
+        <jndi-name>SB_StoreBuyNowHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+   <jonas-session>
+        <ejb-name>SB_BuyNow</ejb-name>
+        <jndi-name>SB_BuyNowHome</jndi-name>	
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+        <jonas-ejb-ref>
+            <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+            <jndi-name>SB_AuthHome</jndi-name>
+        </jonas-ejb-ref>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_StoreComment</ejb-name>
+        <jndi-name>SB_StoreCommentHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_PutComment</ejb-name>
+        <jndi-name>SB_PutCommentHome</jndi-name>	
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+        <jonas-ejb-ref>
+            <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+            <jndi-name>SB_AuthHome</jndi-name>
+        </jonas-ejb-ref>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_RegisterUser</ejb-name>
+        <jndi-name>SB_RegisterUserHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_ViewUserInfo</ejb-name>
+        <jndi-name>SB_ViewUserInfoHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_RegisterItem</ejb-name>
+        <jndi-name>SB_RegisterItemHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_ViewItem</ejb-name>
+        <jndi-name>SB_ViewItemHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_SearchItemsByRegion</ejb-name>
+        <jndi-name>SB_SearchItemsByRegionHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_SearchItemsByCategory</ejb-name>
+        <jndi-name>SB_SearchItemsByCategoryHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_BrowseRegions</ejb-name>
+        <jndi-name>SB_BrowseRegionsHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_BrowseCategories</ejb-name>
+        <jndi-name>SB_BrowseCategoriesHome</jndi-name>	
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+        <jonas-ejb-ref>
+            <ejb-ref-name>ejb/SB_Auth</ejb-ref-name>
+            <jndi-name>SB_AuthHome</jndi-name>
+        </jonas-ejb-ref>
+    </jonas-session>
+
+    <jonas-session>
+        <ejb-name>SB_Auth</ejb-name>
+        <jndi-name>SB_AuthHome</jndi-name>
+        <jonas-resource>
+            <res-ref-name>jdbc/rubis</res-ref-name>
+            <jndi-name>mysql</jndi-name>
+        </jonas-resource>
+    </jonas-session>
+
+</jonas-ejb-jar>

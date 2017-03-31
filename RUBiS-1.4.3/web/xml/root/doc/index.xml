@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>Documentation</title>
+    <filename>index.xml</filename>
+    <pathtoroot>..</pathtoroot>
+  </properties>
+
+  <body>
+
+    <s1 name="Documentation" anchor="doc">
+  
+      <ul>
+	<li><a href="install.html">Installation and Configuration Guide</a></li>
+      </ul>   
+    </s1>
+
+     <s1 name="Contributed documentation">
+  
+      <ul>
+	<li><a href="http://crash.stanford.edu/resources/rubis.html">Guide to Installing RUBiS 1.4.1 on JBoss 3.2.1</a></li>
+	<li><a href="howto-jonas.html">Installing RUBiS 1.4.2 with JOnAS</a></li>
+      </ul>   
+    </s1>
+
+
+    <s1 name="Papers" anchor="paper">
+      <ul>
+      <li> 
+	<a href="../download/Middleware-2003.pdf"> Performance Comparison of Middleware Architectures for Generating Dynamic Web Content</a>  - Emmanuel Cecchet, Anupam Chanda, Sameh Elnikety, Julie Marguerite and Willy Zwaenepoel.
+	 - 4th ACM/IFIP/USENIX International Middleware Conference, Rio de Janeiro, Brazil, June 16-20, 2003
+	</li>
+	<li> 
+	<a href="http://www.cs.rice.edu/CS/Systems/DynaServer/wwc5-spec_dyna_bench.pdf">Specification and Implementation of Dynamic Web Site Benchmarks</a> (<a href="http://www.cs.rice.edu/CS/Systems/DynaServer/wwc5-spec_dyna_bench.ps.gz">ps.gz</a> format)
+	Cristiana Amza, Emmanuel Cecchet, Anupam Chanda, Alan Cox, Sameh Elnikety, Romer Gil, Julie Marguerite, Karthick Rajamani and Willy Zwaenepoel
+	WWC-5 - Austin, TX, USA - November 25, 2002
+	</li>
+	<li> <a href="../download/perf_scalability_ejb.pdf">Performance and Scalability of EJB Applications (pdf)</a> (<a href="download/perf_scalability_ejb.ps.gz">ps.gz</a> format)
+	Emmanuel Cecchet, Julie Marguerite and Willy Zwaenepoel
+	Oopsla'02 - Seattle, WA, USA - November 4-8, 2002
+	Full experiment reports are available<a href="../results.html"> here</a>.
+	</li>
+	<li> 
+	<a href="../download/ebiz_software_comparison.pdf">A Comparison of Software Architectures for E-business Applications</a>
+	Emmanuel Cecchet, Anupam Chanda, Sameh Elnikety, Julie Marguerite and Willy Zwaenepoel.
+	Rice University Technical Report TR02-389
+	</li>
+	<li> 
+	<a href="../download/dyna_bottleneck.pdf">Bottleneck Characterization of Dynamic Web Site Benchmarks</a>
+	Cristiana Amza, Emmanuel Cecchet, Anupam Chanda, Sameh Elnikety, Alan Cox, Romer Gil, Julie Marguerite, Karthick Rajamani and Willy Zwaenepoel
+	Rice University Technical Report TR02-388
+	</li>
+      </ul>
+    </s1>
+
+  </body>
+
+</document>

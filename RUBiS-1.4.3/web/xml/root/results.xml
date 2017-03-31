@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<!DOCTYPE document SYSTEM '../../common/dtd/objectweb.dtd'>
+
+<document>
+  <properties>
+    <author email="jmob@objectweb.org">jmob@objectweb.org</author>
+    <title>Experimental Reports</title>
+    <filename>results.xml</filename>
+    <pathtoroot>.</pathtoroot>
+  </properties>
+
+  <body>
+
+<s1 name="Experimental Reports">
+
+<p>In our paper <a
+ href="../download/perf_scalability_ejb.pdf"> 
+Performance and Scalability of EJB applications</a>, we investigate the
+combined effect of application implementation method, container design, and
+efficiency of communication layers on the performance scalability of J2EE
+application servers by measurement of the auction site server <a
+ href="../index.html">RUBiS</a>.</p>
+<p>
+ We use five versions of the auction site. The first version uses stateless 
+session beans, making only minimal use of the services provided by the Enterprise 
+JavaBeans (EJB) container. Two versions uses entity beans, one with container-managed 
+persistence and the other with bean-managed persistence. The fourth version 
+applies the session fa&#231;ade pattern, using session beans as a fa&#231;ade 
+to access entity beans. The last version uses EJB 2.0 local interfaces with 
+the session fa&#231;ade pattern. We evaluate these different implementations 
+on two popular open-source EJB containers with orthogonal designs. JBoss uses
+dynamic proxies to generate the container classes at run time, making an
+extensive use of reflection. JOnAS pre-compiles classes during deployment, 
+minimizing the use of reflection at run time. We also evaluate the communication 
+optimizations provided by each of these EJB containers.
+  </p>
+ 
+<p>We present the experimental results for each implementation. For each
+implementation, we evaluate up to 5 different configurations referred to
+as follows:</p>
+<ul>
+<li>Java Servlets: the Java Servlets implementation,</li>
+<li><em>JBoss</em>: the <a href="http://www.jboss.org">JBoss container</a> 
+using JNP and passing objects by value,</li>
+<li><em>JOnAS-RMI</em>: the <a href="http://jonas.objectweb.org/">JOnAS container</a> 
+ using RMI,</li>
+<li><em>JBoss optimized calls</em>: the JBoss container using JNP and passing
+ objects by reference,</li>
+<li><em>JOnAS-Jeremie</em>: the JOnAS container using the Jeremie communication
+ layer.</li>
+</ul>
+
+
+<s2 name="Full Report Of Paper Experiments">
+<p><a href="results/sb.html">Session beans results</a><br></br>
+
+<a href="results/eb-cmp.html">DAO separation with EB CMP results</a> <br></br>
+
+<a href="results/eb-bmp.html"> DAO separation with EB BMP results</a> <br></br>
+
+<a href="results/facade.html">Session fa&#231;ade results</a> <br></br>
+
+<a href="results/local.html">EJB 2.0 local interfaces results</a><br></br>
+ (click on the number to access the experiment report - Resource usage is 
+detailed in 'Test performance report')
+</p>
+<p>Download the <a href="results/rubis_dump.sql.gz">database dump</a>  (113 MB) used
+for the experiments (SQL dump in ASCII format compressed with gzip).</p> 
+<p>Download JOnAS configuration files: <a href="results/config_files/JOnAS-RMI.tgz">JOnAS-RMI</a> 
+ version, <a href="results/config_files/JOnAS-Jeremie.tgz">JOnAS-Jeremie</a>  version,
+ <a href="results/config_files/JOnAS-2.5.tgz">JOnAS 2.5</a> (EJB 2.0) version. </p>
+<p>Download JBoss configuration files: <a href="results/config_files/JBoss.tgz">JBoss</a>  version,
+<a href="results/config_files/JBoss-opt.tgz">JBoss optimized calls </a> version,
+<a href="results/config_files/JBoss-3.0.tgz">JBoss 3.0</a> (EJB 2.0) version.</p>
+<p>Download <a href="http://forge.objectweb.org/project/showfiles.php?group_id=44">RUBiS</a>.</p>
+  </s2>
+
+  </s1>
+
+</body>
+</document>

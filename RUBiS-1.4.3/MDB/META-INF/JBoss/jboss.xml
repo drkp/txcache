@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- 
+This is the JBoss 3.0 EJB deployment descriptor for RUBiS.
+-->
+
+<jboss>
+
+  <enterprise-beans>
+
+    <message-driven>
+      <ejb-name>MDB_Auth</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicAuth</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+ 
+    <message-driven>
+      <ejb-name>MDB_BrowseRegions</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicBrowseRegions</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_BrowseCategories</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicBrowseCategories</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_SearchItemsByCategory</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicSearchItemsByCategory</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_SearchItemsByRegion</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicSearchItemsByRegion</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_ViewItem</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicViewItem</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_ViewUserInfo</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicViewUserInfo</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_PutComment</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicPutComment</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_StoreComment</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicStoreComment</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_RegisterUser</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicRegisterUser</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_RegisterItem</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicRegisterItem</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_PutBid</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicPutBid</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_StoreBid</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicStoreBid</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_ViewBidHistory</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicViewBidHistory</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_BuyNow</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicBuyNow</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_StoreBuyNow</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicStoreBuyNow</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+    <message-driven>
+      <ejb-name>MDB_AboutMe</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>topic/topicAboutMe</destination-jndi-name>
+
+      <resource-ref>
+        <res-ref-name>jdbc/rubis</res-ref-name>
+        <resource-name>rubis</resource-name>
+      </resource-ref>
+    </message-driven>
+
+   </enterprise-beans>
+
+
+  <resource-managers>
+
+    <resource-manager>
+      <res-name>rubis</res-name>
+      <res-jndi-name>java:/rubis</res-jndi-name>
+    </resource-manager>
+
+  </resource-managers>
+
+</jboss>
+
