@@ -1,0 +1,193 @@
+#!/usr/bin/env python
+import sys, struct, collections, glob, bz2
+
+# Hex dump
+FILTER=''.join([(len(repr(chr(x)))==3) and chr(x) or '.' for x in range(256)])
+def hexdump(src, length=8):
+    result=[]
+    for i in xrange(0, len(src), length):
+       s = src[i:i+length]
+       hexa = ' '.join(["%02X"%ord(x) for x in s])
+       printable = s.translate(FILTER)
+       result.append("%04X   %-*s   %s\n" % (i, length*3, hexa, printable))
+    return ''.join(result)
+
+
+
+Interval = collections.namedtuple("Interval", "lower, upper, stillValid")
+
+class Entry(collections.namedtuple("Entry",
+                                   "key, data, invalTags, interval,"
+                                   "timeInvalidated, hitCount")):
+    def getClassName(self):
+        clsLen = struct.unpack("i", self.key[0:4])[0]
+        cls = self.key[4:4+clsLen]
+        return cls.rstrip("\x00")
+    className = property(getClassName, None, None, "PHP class name")
+
+class ClassStats:
+    def __init__(self):
+        self.num = 0
+        self.keySize = 0
+        self.dataSize = 0
+        self.nInvalTags = 0
+        self.invalTagSize = 0
+        self.hitCount = 0
+        self.valid = 0
+
+    def add(self, entry):
+        self.num += 1
+        self.keySize += len(entry.key)
+        self.dataSize += len(entry.data)
+        self.nInvalTags += len(entry.invalTags)
+        for x in entry.invalTags:
+            self.invalTagSize += len(x)
+        self.hitCount += entry.hitCount
+        if entry.interval.stillValid:
+            self.valid += 1
+
+    def getTotalSize(self):
+        return self.keySize + self.dataSize + self.invalTagSize
+    totalSize = property(getTotalSize, None, None, "Total size")
+
+        
+class IOBuf:
+    def __init__(self, path):
+        self.path = path
+        if path.endswith(".bz2"):
+            self.f = bz2.BZ2File(path)
+        else:
+            self.f = file(path)
+
+    def __eq__(self, other):
+        return self.f == other.f
+        
+    def readByte(self):
+        return struct.unpack("b", self.f.read(1))[0]    
+
+    def readLong(self):
+        return struct.unpack("i", self.f.read(4))[0]
+
+    def readBuf(self):
+        bufLen = self.readLong()
+        sys.stdout.flush()
+        return self.f.read(bufLen)
+
+    def readString(self):
+        return self.readBuf().rstrip("\x00")
+    
+    def readEntry(self):
+        key = self.readBuf()
+        data = self.readBuf()
+        nInvalTags = self.readLong()
+        invalTags = [self.readString()
+                     for i in range(nInvalTags)]
+        lower = self.readLong()
+        upper = self.readLong()
+        stillValid = self.readByte()
+        timeInvalidated = self.readLong()
+        hitCount = self.readLong()
+        entry = Entry(key = key,
+                      data = data,
+                      invalTags = invalTags,
+                      interval = Interval(lower, upper, stillValid),
+                      timeInvalidated = timeInvalidated,
+                      hitCount = hitCount)
+        return entry
+
+    def readVset(self):
+        key = self.readBuf()
+        n = self.readLong()
+        entries = []
+        for i in range(n):
+            entries.append(self.readEntry())
+        return entries
+
+    def readVsets(self):
+        vsets = []
+        while self.f.read(1):
+            vset = self.readVset()
+            vsets.append(vset)
+        return vsets
+
+def getVsets(name):
+    print "Reading", name
+    b = IOBuf(name)
+    return b.readVsets()
+
+def getClassStats(path):
+    classStats = collections.defaultdict(ClassStats)
+    for x in glob.glob(path+"/info/store.debugdump.*"):
+        b = IOBuf(x)
+        
+        print >> sys.stderr, "Parsing", x
+        while b.f.read(1):
+            y = b.readVset()
+            for x in y:
+                classStats[x.className].add(x)
+                classStats["total"].add(x)
+        del b
+    return classStats
+
+# vsets = getVsets()
+# for y in vsets[0:50]:
+#     for x in y:
+#         if (x.className == "getOldItemImpl") or (x.className == "getItemImpl"):
+#             print "%s: %d bytes: " % (x.className, len(x.data))
+#             print hexdump(x.data, 32)
+#             print " "
+
+def printStats(path):
+    classStats = getClassStats(path)
+
+    print "Total cache size:", classStats["total"].totalSize/1048576, "MB"
+
+    print "%15s: %7s %8s %7s %8s %7s %8s %4s %10s" % ("name", "num", "totlSz", "keySz", "dataSz", "invSz", "invTags", "vald", "hits")
+
+    sortedStats = sorted(classStats.items(), key=(lambda x: x[1].totalSize if x[0] != "total" else -1), reverse=True)
+
+    for name, stats in sortedStats:
+        if len(name) > 15:
+            name = name[0:15]
+        print "%15s: %7d %8d %7d %8d %7d %8d %3d%% %10d" %    (
+            name, stats.num,
+            stats.totalSize/1024,
+            stats.keySize/1024,
+            stats.dataSize/1024,
+            stats.invalTagSize/1024,
+            stats.nInvalTags,
+            int(100*stats.valid/stats.num),
+            stats.hitCount)
+
+def graph(paths):
+    classStats = [getClassStats(x) for x in paths]
+    classNames = set()
+    for x in classStats:
+        for y in x:
+            classNames.add(y)
+    classNames.remove("total")
+    sortedNames = sorted(classNames,
+                         key=(lambda x: classStats[-1][x].totalSize),
+                         reverse=True)
+    for x in sortedNames:
+        print x,
+        print "\t",
+        for y in classStats:
+            print y[x].totalSize,
+            print "\t",
+        print ""
+
+def usage():
+    print "usage: "
+    print "  %s stats BENCHDIR" % sys.argv[0]
+    print "  %s graph BENCHDIR [...]" % sys.argv[0]
+    sys.exit(1)
+
+if (len(sys.argv) < 3):
+    usage()
+if (sys.argv[1] == "stats"):
+    printStats(sys.argv[2])
+elif sys.argv[1] == "graph":
+    graph(sys.argv[2:])
+else:
+    usage()

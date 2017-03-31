@@ -1,0 +1,108 @@
+#!/usr/bin/env python
+
+import sys, os, re, glob, time
+
+NUMSTATS=8
+INTERVAL=30                     # seconds
+
+skipped = 0
+parsed = 0
+
+class ParseException(Exception):
+    pass
+class NotEnoughStatlinesException(Exception):
+    pass
+
+class Statline:
+    def __init__(self, stats):
+        self.stats = [int(x) for x in stats]
+
+    def __add__(self, other):
+        if other == None:
+            return self
+        return Statline([self.stats[i] + other.stats[i]
+                         for i in range(len(self.stats))])
+
+    def __sub__(self, other):
+        return Statline([self.stats[i] - other.stats[i]
+                         for i in range(len(self.stats))])
+    
+
+class Clog:
+    def __init__(self, filename):
+        self.filename = filename
+        self.statlines = []
+        self.pid = None
+        self.deltas = {}
+        
+        f = file(filename)
+        
+        for l in f:
+            if "STATLINE" in l:
+                lsplit = l.split()
+                if lsplit[3] != "STATLINE":
+                    raise ParseException()
+                self.pid = int(lsplit[1])
+                # remove the microsecond field before parsing time
+                hms = "-".join(lsplit[0].split("-")[0:2])
+                timestamp = int(time.mktime(time.strptime(hms,
+                                                      "%Y%m%d-%H%M%S")))
+                timestamp -= timestamp % INTERVAL
+                self.statlines.append((timestamp,
+                                       Statline(lsplit[4:4+NUMSTATS])))
+
+        if len(self.statlines) < 2:
+            return
+
+        for i in range(1, len(self.statlines)):
+            global skipped, parsed
+            tsnew = self.statlines[i][0]
+            tsold = self.statlines[i-1][0]
+            if (tsold > tsnew):
+                raise ParseException()
+            if tsnew - tsold != INTERVAL:
+                print "Wrong interval between points, ignoring:", (tsnew-tsold)
+                skipped += 1
+                continue
+            parsed += 1
+            delta = self.statlines[i][1] - self.statlines[i-1][1]
+            self.deltas[tsnew] = delta
+        
+
+    def getTimestampSet(self):
+        return set(self.deltas.keys())
+
+    def getTimestamp(self, ts):
+        return self.deltas[ts]
+            
+
+# parse logs
+filenames = glob.glob("clog-*/*")
+logs = [Clog(x) for x in filenames]
+timestamps = set()
+statlines = []
+
+# Gather set of timestamps
+for x in logs:
+    timestamps.update(x.getTimestampSet())
+
+timestamps = list(timestamps)
+timestamps.sort()
+
+print "Parsed", parsed, "points; skipped", skipped
+
+# Build collected statlines
+for t in timestamps:
+    sl = None
+    for x in logs:
+        try:
+            if sl == None:
+                sl = x.getTimestamp(t)
+            else:
+                sl += x.getTimestamp(t)
+        except KeyError:
+            continue
+    statlines.append(sl)
+
+for ts,sl in zip(timestamps, statlines):
+    print "elapsed time:", ts-timestamps[0], "; roQueries", sl.stats[0]

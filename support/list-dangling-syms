@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+typeset -a HAVEL
+HAVEL=($(nm -D $2 | awk '$2 == "T" {print $3}'))
+typeset -A HAVE
+for s in $HAVEL; do HAVE[$s]=1; done
+typeset -a WANT
+WANT=($(nm -u $1 | awk '{print $2}'))
+
+for s in $WANT; do
+    if [[ -z ${HAVE[$s]} ]]; then
+        echo $s
+    fi
+done

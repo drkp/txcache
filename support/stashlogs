@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+echo "Things have changed since this script was written"
+echo "It's been ported, but not tested"
+echo "Saving you from yourself..."
+exit 1
+
+set -e
+
+TS=`awk '{print $1}' server/log | head -n 1`
+P=`dirname $0`/../logs/$TS
+mkdir -p $P
+ln -s $TS `dirname $P`/`date +"%Y-%m-%d_%H-%M-%S"`
+cp --preserve=timestamps server/log $P/server
+cp --preserve=timestamps pincushion/log $P/pincushion
+cp --preserve=timestamps /tmp/clog/* $P/
+LANG=C sort -sk 1,2 $P/server $P/pincushion $P/[0-9]* > $P/all
+rm server/log pincushion/log
+echo "Maybe need your password to remove old client logs"
+find /tmp/clog/ -type f -delete
+
+echo "Logs stashed in $P"
+echo "gzip'ing everything in the background"
+gzip $P/server $P/pincushion $P/all $P/[0-9]* &
+
+if pidof server > /dev/null; then
+    echo "Don't forget to restart the cache server"
+fi
+if pidof pincushion > /dev/null; then
+    echo "Don't forget to restart the pincushion"
+fi
+
