@@ -1,0 +1,19 @@
+/Makefile/1.26/Tue Sep 27 17:13:10 2005//TREL8_2_STABLE
+/README.spi/1.1/Mon Jun 19 14:02:08 2000//TREL8_2_STABLE
+/README.timetravel/1.1/Sun Jul 27 04:51:45 2003//TREL8_2_STABLE
+/autoinc.c/1.12/Tue May 30 22:12:13 2006//TREL8_2_STABLE
+/autoinc.example/1.1/Thu Oct  2 18:01:53 1997//TREL8_2_STABLE
+/autoinc.sql.in/1.6/Mon Feb 27 16:09:49 2006//TREL8_2_STABLE
+/insert_username.c/1.14/Tue May 30 22:12:13 2006//TREL8_2_STABLE
+/insert_username.example/1.1/Fri Oct 17 09:55:33 1997//TREL8_2_STABLE
+/insert_username.sql.in/1.6/Mon Feb 27 16:09:49 2006//TREL8_2_STABLE
+/moddatetime.c/1.13/Tue May 30 22:12:13 2006//TREL8_2_STABLE
+/moddatetime.example/1.2/Fri May  3 04:11:07 2002//TREL8_2_STABLE
+/moddatetime.sql.in/1.6/Mon Feb 27 16:09:49 2006//TREL8_2_STABLE
+/refint.c/1.30/Tue Jul 11 17:26:58 2006//TREL8_2_STABLE
+/refint.example/1.1/Fri Sep 12 02:41:15 1997//TREL8_2_STABLE
+/refint.sql.in/1.6/Mon Feb 27 16:09:49 2006//TREL8_2_STABLE
+/timetravel.c/1.25/Tue May 30 22:12:13 2006//TREL8_2_STABLE
+/timetravel.example/1.4/Sun Jul 27 04:51:45 2003//TREL8_2_STABLE
+/timetravel.sql.in/1.7/Mon Feb 27 16:09:49 2006//TREL8_2_STABLE
+D

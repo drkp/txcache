@@ -1,0 +1,13 @@
+/Makefile/1.44/Thu Sep 28 14:48:45 2006//TREL8_2_STABLE
+/connect.c/1.37/Wed Nov  8 10:46:47 2006//TREL8_2_STABLE
+/data.c/1.35/Wed Oct  4 00:30:11 2006//TREL8_2_STABLE
+/descriptor.c/1.20.2.1/Fri Apr 27 06:58:17 2007//TREL8_2_STABLE
+/error.c/1.15/Wed Oct  4 00:30:11 2006//TREL8_2_STABLE
+/execute.c/1.62.2.3/Fri Apr 27 06:58:17 2007//TREL8_2_STABLE
+/extern.h/1.20.2.1/Fri Apr 27 07:55:22 2007//TREL8_2_STABLE
+/memory.c/1.8/Wed Nov  8 10:46:47 2006//TREL8_2_STABLE
+/misc.c/1.32/Wed Oct  4 00:30:11 2006//TREL8_2_STABLE
+/pg_type.h/1.6/Sun Mar  5 15:59:08 2006//TREL8_2_STABLE
+/prepare.c/1.18/Wed Oct  4 00:30:11 2006//TREL8_2_STABLE
+/typename.c/1.10/Sat Nov 29 19:52:08 2003//TREL8_2_STABLE
+D

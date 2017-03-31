@@ -1,0 +1,17 @@
+/Makefile/1.18/Sun Apr 17 22:24:02 2005//TREL8_2_STABLE
+/README/1.2/Sat Nov 29 22:39:45 2003//TREL8_2_STABLE
+/bitmapset.c/1.11/Sun Mar  5 15:58:27 2006//TREL8_2_STABLE
+/copyfuncs.c/1.353.2.2/Fri Aug 31 01:44:14 2007//TREL8_2_STABLE
+/equalfuncs.c/1.287.2.2/Fri Aug 31 01:44:14 2007//TREL8_2_STABLE
+/list.c/1.67/Sun Mar  5 15:58:27 2006//TREL8_2_STABLE
+/makefuncs.c/1.52/Wed Oct  4 00:29:53 2006//TREL8_2_STABLE
+/nodeFuncs.c/1.27/Sun Mar  5 15:58:27 2006//TREL8_2_STABLE
+/nodes.c/1.26/Sun Mar  5 15:58:27 2006//TREL8_2_STABLE
+/outfuncs.c/1.285.2.5/Mon Dec  1 21:06:30 2008//TREL8_2_STABLE
+/params.c/1.7/Wed Oct  4 00:29:53 2006//TREL8_2_STABLE
+/print.c/1.81/Wed Aug  2 01:59:45 2006//TREL8_2_STABLE
+/read.c/1.49/Wed Sep 27 18:40:09 2006//TREL8_2_STABLE
+/readfuncs.c/1.195/Sat Aug 12 02:52:04 2006//TREL8_2_STABLE
+/tidbitmap.c/1.10.2.1/Thu Apr 26 23:24:56 2007//TREL8_2_STABLE
+/value.c/1.3/Sun Mar  5 15:58:28 2006//TREL8_2_STABLE
+D

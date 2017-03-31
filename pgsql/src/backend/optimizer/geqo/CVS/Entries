@@ -1,0 +1,16 @@
+/Makefile/1.18/Sat Nov 29 19:51:50 2003//TREL8_2_STABLE
+/geqo_copy.c/1.16/Sun Mar  5 15:58:28 2006//TREL8_2_STABLE
+/geqo_cx.c/1.10/Sat Nov 29 22:39:49 2003//TREL8_2_STABLE
+/geqo_erx.c/1.20/Sat Oct 15 02:49:19 2005//TREL8_2_STABLE
+/geqo_eval.c/1.81.2.3/Fri Feb 16 00:14:07 2007//TREL8_2_STABLE
+/geqo_main.c/1.53/Fri Jul 14 14:52:20 2006//TREL8_2_STABLE
+/geqo_misc.c/1.46/Sat Jul 15 03:35:21 2006//TREL8_2_STABLE
+/geqo_mutation.c/1.9/Sat Nov 29 22:39:49 2003//TREL8_2_STABLE
+/geqo_ox1.c/1.9/Sat Nov 29 22:39:49 2003//TREL8_2_STABLE
+/geqo_ox2.c/1.10/Thu Oct  7 15:21:52 2004//TREL8_2_STABLE
+/geqo_pmx.c/1.10/Sat Nov 29 22:39:49 2003//TREL8_2_STABLE
+/geqo_pool.c/1.30/Fri Jul 14 14:52:20 2006//TREL8_2_STABLE
+/geqo_px.c/1.10/Sat Nov 29 22:39:49 2003//TREL8_2_STABLE
+/geqo_recombination.c/1.15/Sat Oct 15 02:49:19 2005//TREL8_2_STABLE
+/geqo_selection.c/1.21/Sun Mar  5 15:58:28 2006//TREL8_2_STABLE
+D

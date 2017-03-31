@@ -1,0 +1,16 @@
+/Makefile/1.21/Fri Jun 17 22:32:42 2005//TREL8_2_STABLE
+/README/1.5/Fri Mar 31 23:32:05 2006//TREL8_2_STABLE
+/clog.c/1.41/Sun Nov  5 22:42:07 2006//TREL8_2_STABLE
+/multixact.c/1.22/Fri Nov 17 18:00:15 2006//TREL8_2_STABLE
+/recovery.conf.sample/1.3/Wed Jul 21 22:31:20 2004//TREL8_2_STABLE
+/rmgr.c/1.25/Sun Nov  5 22:42:07 2006//TREL8_2_STABLE
+/slru.c/1.39/Wed Oct  4 00:29:49 2006//TREL8_2_STABLE
+/subtrans.c/1.17/Thu Jul 13 16:49:13 2006//TREL8_2_STABLE
+/transam.c/1.68/Sun Mar  5 15:58:22 2006//TREL8_2_STABLE
+/twophase.c/1.25.2.2/Mon May 19 18:17:03 2008//TREL8_2_STABLE
+/twophase_rmgr.c/1.3/Sun Mar  5 15:58:22 2006//TREL8_2_STABLE
+/varsup.c/1.76/Sun Nov  5 22:42:07 2006//TREL8_2_STABLE
+/xact.c/1.229.2.4/Tue Mar  4 19:54:23 2008//TREL8_2_STABLE
+/xlog.c/1.258.2.4/Tue May 13 20:54:00 2008//TREL8_2_STABLE
+/xlogutils.c/1.48/Wed Oct  4 00:29:49 2006//TREL8_2_STABLE
+D

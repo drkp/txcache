@@ -1,0 +1,26 @@
+This can format all PostgreSQL *.c and *.h files, but excludes *.y, and *.l
+files.
+
+To use it, first get the list of typedef's to be included in pgindent by
+running this on the pgsql/bin and pgsql/lib directories:
+
+	src/tools/find_typedef /usr/local/pgsql/bin /usr/local/pgsql/lib
+
+and update the list in pgindent.  This requires the binaries have debug 
+symbols.
+
+From the top directory, run:
+
+	find . -name '*.[ch]' -type f -print |
+	egrep -v '/s_lock.h|src/interfaces/ecpg/test/expected/' |
+	xargs -n100 pgindent
+
+We have standardized on NetBSD's indent.  We have fixed a few bugs which 
+requre the NetBSD source to be patched with indent.bsd.patch patch.  A 
+fully patched  version is available at ftp://ftp.postgresql.org/pub/dev.
+
+GNU indent, version 2.2.6, has several problems, and is not recommended.
+These bugs become pretty major when you are doing >500k lines of code.
+If you don't believe me, take a directory and make a copy.  Run pgindent
+on the copy using GNU indent, and do a diff -r. You will see what I
+mean. GNU indent does some things better, but mangles too.

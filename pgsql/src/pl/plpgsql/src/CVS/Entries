@@ -1,0 +1,12 @@
+/.cvsignore/1.1/Mon Jan 17 04:38:49 2000//TREL8_2_STABLE
+/INSTALL/1.2/Fri Feb  9 01:05:42 2001//TREL8_2_STABLE
+/Makefile/1.29/Tue Mar  7 01:03:12 2006//TREL8_2_STABLE
+/gram.y/1.95.2.1/Thu Feb  8 18:37:38 2007//TREL8_2_STABLE
+/pl_comp.c/1.108.2.3/Thu Oct  9 16:35:19 2008//TREL8_2_STABLE
+/pl_exec.c/1.180.2.8/Wed Jan 14 09:53:57 2009//TREL8_2_STABLE
+/pl_funcs.c/1.55/Fri Sep 22 21:39:58 2006//TREL8_2_STABLE
+/pl_handler.c/1.33.2.2/Tue Jan 30 22:05:20 2007//TREL8_2_STABLE
+/plerrcodes.h/1.9/Fri Jun 16 23:29:27 2006//TREL8_2_STABLE
+/plpgsql.h/1.81.2.3/Thu Oct  9 16:35:19 2008//TREL8_2_STABLE
+/scan.l/1.54/Mon Aug 14 21:14:42 2006//TREL8_2_STABLE
+D

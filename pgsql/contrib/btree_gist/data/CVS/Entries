@@ -1,0 +1,20 @@
+/bit.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/cash.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/char.data/1.2/Fri Jul  1 13:44:55 2005//TREL8_2_STABLE
+/date.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/float4.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/float8.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/inet.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/int2.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/int4.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/int8.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/interval.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/macaddr.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/numeric.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/text.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/time.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/timestamp.data/1.2/Fri Jul  1 13:44:55 2005//TREL8_2_STABLE
+/timestamptz.data/1.2/Fri Jul  1 13:44:55 2005//TREL8_2_STABLE
+/timetz.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+/varbit.data/1.1/Fri May 28 10:43:23 2004//TREL8_2_STABLE
+D

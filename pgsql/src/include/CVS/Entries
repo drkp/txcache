@@ -1,0 +1,19 @@
+/Makefile/1.21/Fri Dec  9 21:19:35 2005//TREL8_2_STABLE
+/c.h/1.214.2.1/Thu Jan 11 02:40:12 2007//TREL8_2_STABLE
+/fmgr.h/1.48/Wed Oct  4 00:30:06 2006//TREL8_2_STABLE
+/funcapi.h/1.24/Wed Oct  4 00:30:06 2006//TREL8_2_STABLE
+/getaddrinfo.h/1.22/Wed Oct  4 00:30:06 2006//TREL8_2_STABLE
+/getopt_long.h/1.7/Sun Mar  5 15:58:53 2006//TREL8_2_STABLE
+/miscadmin.h/1.190.2.1/Thu Jan  3 21:23:45 2008//TREL8_2_STABLE
+/pg_config.h.in/1.106.2.2/Thu Nov 29 16:44:26 2007//TREL8_2_STABLE
+/pg_config.h.win32/1.38.2.14/Fri Oct 31 02:44:09 2008//TREL8_2_STABLE
+/pg_config_manual.h/1.23/Mon Sep 18 22:40:40 2006//TREL8_2_STABLE
+/pg_trace.h/1.2/Wed Oct  4 00:30:06 2006//TREL8_2_STABLE
+/pgstat.h/1.50.2.1/Sun Jul  8 22:23:25 2007//TREL8_2_STABLE
+/pgtime.h/1.14/Wed Oct 18 16:43:14 2006//TREL8_2_STABLE
+/port.h/1.106.2.6/Wed Apr 16 14:24:38 2008//TREL8_2_STABLE
+/postgres.h/1.75.2.1/Tue Mar 25 19:31:31 2008//TREL8_2_STABLE
+/postgres_ext.h/1.16/Sun Aug 29 05:06:55 2004//TREL8_2_STABLE
+/postgres_fe.h/1.11/Sun Mar  5 15:58:53 2006//TREL8_2_STABLE
+/rusagestub.h/1.17/Sun Mar  5 15:58:53 2006//TREL8_2_STABLE
+D

@@ -1,0 +1,14 @@
+/Makefile/1.1/Tue May  2 11:28:54 2006//TREL8_2_STABLE
+/README/1.2/Sun Sep 10 00:29:34 2006//TREL8_2_STABLE
+/ginarrayproc.c/1.7/Fri Oct  6 17:13:58 2006//TREL8_2_STABLE
+/ginbtree.c/1.6.2.1/Tue Jun  5 12:48:21 2007//TREL8_2_STABLE
+/ginbulk.c/1.6/Wed Oct  4 00:29:47 2006//TREL8_2_STABLE
+/gindatapage.c/1.5.2.1/Mon Jun  4 15:59:19 2007//TREL8_2_STABLE
+/ginentrypage.c/1.5.2.2/Mon Oct 29 13:49:51 2007//TREL8_2_STABLE
+/ginget.c/1.4.2.2/Tue Apr 22 17:53:41 2008//TREL8_2_STABLE
+/gininsert.c/1.5.2.1/Tue Jun  5 12:48:21 2007//TREL8_2_STABLE
+/ginscan.c/1.7/Fri Oct  6 17:13:58 2006//TREL8_2_STABLE
+/ginutil.c/1.8/Thu Oct  5 17:57:40 2006//TREL8_2_STABLE
+/ginvacuum.c/1.9.2.2/Tue Jun  5 12:48:21 2007//TREL8_2_STABLE
+/ginxlog.c/1.5.2.2/Mon Oct 29 19:27:21 2007//TREL8_2_STABLE
+D

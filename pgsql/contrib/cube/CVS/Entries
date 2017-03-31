@@ -1,0 +1,11 @@
+/.cvsignore/1.1/Mon Apr  3 18:47:41 2006//TREL8_2_STABLE
+/CHANGES/1.3/Tue Jul 25 23:23:44 2006//TREL8_2_STABLE
+/Makefile/1.18/Mon Apr  3 18:47:41 2006//TREL8_2_STABLE
+/README.cube/1.9/Sun Sep 10 17:36:50 2006//TREL8_2_STABLE
+/cube.c/1.30.2.2/Thu May 29 18:46:52 2008//TREL8_2_STABLE
+/cube.sql.in/1.19/Sun Sep 10 17:36:51 2006//TREL8_2_STABLE
+/cubedata.h/1.7.2.1/Wed Mar  7 21:25:18 2007//TREL8_2_STABLE
+/cubeparse.y/1.16/Sat Mar 11 04:38:28 2006//TREL8_2_STABLE
+/cubescan.l/1.11/Sat Mar 11 04:38:28 2006//TREL8_2_STABLE
+/uninstall_cube.sql/1.4/Sun Sep 10 17:36:51 2006//TREL8_2_STABLE
+D

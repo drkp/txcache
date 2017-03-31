@@ -1,0 +1,15 @@
+/.cvsignore/1.1/Sun Mar 21 02:43:58 1999//TREL8_2_STABLE
+/Makefile/1.121/Mon Aug 28 16:13:11 2006//TREL8_2_STABLE
+/c_keywords.c/1.19/Sun Jul 30 16:28:58 2006//TREL8_2_STABLE
+/descriptor.c/1.24/Sat Mar 11 04:38:40 2006//TREL8_2_STABLE
+/ecpg.c/1.94.2.1/Wed Aug 29 13:58:34 2007//TREL8_2_STABLE
+/ecpg_keywords.c/1.32/Fri Dec  2 15:03:57 2005//TREL8_2_STABLE
+/extern.h/1.63/Sat Mar 11 04:38:40 2006//TREL8_2_STABLE
+/keywords.c/1.76/Sun Sep  3 12:24:07 2006//TREL8_2_STABLE
+/output.c/1.19/Wed Oct  4 00:30:12 2006//TREL8_2_STABLE
+/pgc.l/1.150.2.1/Wed Aug 29 13:58:34 2007//TREL8_2_STABLE
+/preproc.y/1.339.2.5/Fri Oct 10 12:19:47 2008//TREL8_2_STABLE
+/type.c/1.71/Sun Aug 13 10:18:30 2006//TREL8_2_STABLE
+/type.h/1.45/Sat Oct 15 02:49:48 2005//TREL8_2_STABLE
+/variable.c/1.41/Sun Jul 30 16:28:58 2006//TREL8_2_STABLE
+D

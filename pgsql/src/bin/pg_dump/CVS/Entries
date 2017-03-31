@@ -1,0 +1,23 @@
+/Makefile/1.62/Sun Mar  5 15:58:50 2006//TREL8_2_STABLE
+/README/1.6/Tue Jun 21 20:45:44 2005//TREL8_2_STABLE
+/common.c/1.94.2.1/Sun Oct 28 19:08:08 2007//TREL8_2_STABLE
+/dumputils.c/1.33.2.1/Thu Jan  4 17:49:42 2007//TREL8_2_STABLE
+/dumputils.h/1.19/Mon Oct  9 23:30:33 2006//TREL8_2_STABLE
+/nls.mk/1.19/Tue Jan 25 17:32:00 2005//TREL8_2_STABLE
+/pg_backup.h/1.44/Sat Oct 14 23:07:22 2006//TREL8_2_STABLE
+/pg_backup_archiver.c/1.138.2.3/Tue Jan 13 11:45:01 2009//TREL8_2_STABLE
+/pg_backup_archiver.h/1.73.2.1/Mon Feb 19 15:05:21 2007//TREL8_2_STABLE
+/pg_backup_custom.c/1.36.2.2/Mon Aug  6 01:38:24 2007//TREL8_2_STABLE
+/pg_backup_db.c/1.75.2.1/Sat Aug 16 02:25:17 2008//TREL8_2_STABLE
+/pg_backup_db.h/1.13/Tue Jul 18 17:42:01 2006//TREL8_2_STABLE
+/pg_backup_files.c/1.29.2.2/Mon Aug  6 01:38:24 2007//TREL8_2_STABLE
+/pg_backup_null.c/1.19/Fri Jul 14 14:52:26 2006//TREL8_2_STABLE
+/pg_backup_tar.c/1.56.2.3/Wed Aug 29 16:31:45 2007//TREL8_2_STABLE
+/pg_backup_tar.h/1.5/Sat Nov 29 19:52:05 2003//TREL8_2_STABLE
+/pg_dump.c/1.453.2.1/Mon Apr 16 18:42:17 2007//TREL8_2_STABLE
+/pg_dump.h/1.130.2.1/Mon Feb 19 15:05:21 2007//TREL8_2_STABLE
+/pg_dump_sort.c/1.15/Fri Jul 14 14:52:26 2006//TREL8_2_STABLE
+/pg_dumpall.c/1.85.2.1/Tue May 15 20:20:24 2007//TREL8_2_STABLE
+/pg_restore.c/1.84/Sat Oct 14 23:07:22 2006//TREL8_2_STABLE
+/win32.mak/1.5.2.1/Mon Dec  4 22:26:46 2006//TREL8_2_STABLE
+D

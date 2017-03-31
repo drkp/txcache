@@ -1,0 +1,25 @@
+/bit.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/bytea.out/1.2/Fri Jul  1 13:44:56 2005//TREL8_2_STABLE
+/cash.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/char.out/1.2/Fri Jul  1 13:44:56 2005//TREL8_2_STABLE
+/cidr.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/date.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/float4.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/float8.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/inet.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/init.out/1.2/Thu Jul 21 04:15:04 2005//TREL8_2_STABLE
+/int2.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/int4.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/int8.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/interval.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/macaddr.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/numeric.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/oid.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/text.out/1.2/Fri Jul  1 13:44:56 2005//TREL8_2_STABLE
+/time.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/timestamp.out/1.2/Fri Jul  1 13:44:56 2005//TREL8_2_STABLE
+/timestamptz.out/1.2/Fri Jul  1 13:44:56 2005//TREL8_2_STABLE
+/timetz.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/varbit.out/1.1/Fri May 28 10:43:27 2004//TREL8_2_STABLE
+/varchar.out/1.2/Fri Jul  1 13:44:56 2005//TREL8_2_STABLE
+D

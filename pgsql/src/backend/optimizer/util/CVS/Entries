@@ -1,0 +1,11 @@
+/Makefile/1.16/Fri Jun 10 22:25:36 2005//TREL8_2_STABLE
+/clauses.c/1.223.2.4/Thu Oct 11 21:28:05 2007//TREL8_2_STABLE
+/joininfo.c/1.44.2.2/Fri Feb 16 00:14:07 2007//TREL8_2_STABLE
+/pathnode.c/1.133/Wed Oct  4 00:29:55 2006//TREL8_2_STABLE
+/plancat.c/1.127.2.1/Sat Jan 12 00:11:45 2008//TREL8_2_STABLE
+/predtest.c/1.10.2.4/Wed Nov 12 23:08:50 2008//TREL8_2_STABLE
+/relnode.c/1.83.2.1/Tue Jul 31 19:53:50 2007//TREL8_2_STABLE
+/restrictinfo.c/1.49.2.1/Tue Jul 31 19:53:50 2007//TREL8_2_STABLE
+/tlist.c/1.73/Thu Aug 10 02:36:29 2006//TREL8_2_STABLE
+/var.c/1.68/Fri Jul 14 14:52:21 2006//TREL8_2_STABLE
+D

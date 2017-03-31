@@ -1,0 +1,125 @@
+CREATE TABLE pintest (a int);
+INSERT INTO pintest VALUES (1);
+INSERT INTO pintest VALUES (2);
+INSERT INTO pintest VALUES (3);
+INSERT INTO pintest VALUES (4);
+SELECT * FROM pintest;
+ a 
+---
+ 1
+ 2
+ 3
+ 4
+(4 rows)
+
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY;
+PIN;
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+ 4
+(4 rows)
+
+COMMIT;
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY;
+PIN;
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+ 4
+(4 rows)
+
+COMMIT;
+DELETE FROM pintest WHERE a=4;
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY;
+PIN;
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+(3 rows)
+
+COMMIT;
+\set QUIET off
+INSERT INTO pintest VALUES (5);
+INSERT 0 1
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+ 5
+(4 rows)
+
+SELECT
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY SNAPSHOTID 5;
+BEGIN
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+ 4
+(4 rows)
+
+SELECT VALIDITY 5 6
+COMMIT;
+COMMIT
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY SNAPSHOTID 6;
+BEGIN
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+(3 rows)
+
+SELECT VALIDITY 6 7
+COMMIT;
+COMMIT
+-- vacuum shouldn't change anything
+VACUUM;
+VACUUM
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY SNAPSHOTID 5;
+BEGIN
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+ 4
+(4 rows)
+
+SELECT VALIDITY 5 6
+COMMIT;
+COMMIT
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY SNAPSHOTID 6;
+BEGIN
+SELECT * from pintest;
+ a 
+---
+ 1
+ 2
+ 3
+(3 rows)
+
+SELECT VALIDITY 6 7
+COMMIT;
+COMMIT
+\set QUIET on
+UNPIN 5;
+BEGIN ISOLATION LEVEL SERIALIZABLE READ ONLY SNAPSHOTID 5;
+ERROR:  saved snapshot not found
+DROP TABLE pintest;

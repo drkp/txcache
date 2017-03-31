@@ -1,0 +1,11 @@
+/Makefile/1.16/Sat Nov 29 19:51:50 2003//TREL8_2_STABLE
+/allpaths.c/1.154.2.3/Tue Nov 11 18:13:54 2008//TREL8_2_STABLE
+/clausesel.c/1.82.2.2/Mon Dec  1 21:06:30 2008//TREL8_2_STABLE
+/costsize.c/1.169.2.2/Mon Jan  8 16:09:31 2007//TREL8_2_STABLE
+/indxpath.c/1.212.2.4/Wed Nov  7 22:37:33 2007//TREL8_2_STABLE
+/joinpath.c/1.107.2.1/Tue May 22 01:40:42 2007//TREL8_2_STABLE
+/joinrels.c/1.81.2.5/Fri Jan 11 04:02:25 2008//TREL8_2_STABLE
+/orindxpath.c/1.81/Wed Oct  4 00:29:54 2006//TREL8_2_STABLE
+/pathkeys.c/1.79.2.2/Mon Dec  1 21:06:30 2008//TREL8_2_STABLE
+/tidpath.c/1.28/Wed Oct  4 00:29:54 2006//TREL8_2_STABLE
+D

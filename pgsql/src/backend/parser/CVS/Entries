@@ -1,0 +1,20 @@
+/.cvsignore/1.1/Sun Mar 21 02:41:53 1999//TREL8_2_STABLE
+/Makefile/1.44/Sat May 27 17:38:45 2006//TREL8_2_STABLE
+/README/1.4/Sun Aug 23 14:43:45 1998//TREL8_2_STABLE
+/analyze.c/1.353.2.2/Sat Dec 13 02:00:52 2008//TREL8_2_STABLE
+/gram.y/2.568.2.1/Thu Feb  7 21:08:04 2008//TREL8_2_STABLE
+/keywords.c/1.177/Sat Oct  7 21:51:02 2006//TREL8_2_STABLE
+/parse_agg.c/1.73/Thu Jul 27 19:52:05 2006//TREL8_2_STABLE
+/parse_clause.c/1.159/Tue Nov 28 12:54:41 2006//TREL8_2_STABLE
+/parse_coerce.c/2.146.2.1/Sat Oct 25 17:19:26 2008//TREL8_2_STABLE
+/parse_expr.c/1.198.2.2/Sun Oct 26 02:46:36 2008//TREL8_2_STABLE
+/parse_func.c/1.190/Wed Oct  4 00:29:55 2006//TREL8_2_STABLE
+/parse_node.c/1.95/Wed Oct  4 00:29:56 2006//TREL8_2_STABLE
+/parse_oper.c/1.90/Wed Oct  4 00:29:56 2006//TREL8_2_STABLE
+/parse_relation.c/1.125.2.1/Sat Apr  5 01:58:35 2008//TREL8_2_STABLE
+/parse_target.c/1.149.2.1/Thu Sep 27 17:42:09 2007//TREL8_2_STABLE
+/parse_type.c/1.85/Wed Oct  4 00:29:56 2006//TREL8_2_STABLE
+/parser.c/1.68.2.1/Sat Jan  6 19:14:27 2007//TREL8_2_STABLE
+/scan.l/1.138/Fri Sep 22 21:39:57 2006//TREL8_2_STABLE
+/scansup.c/1.34/Fri Sep 22 21:39:57 2006//TREL8_2_STABLE
+D

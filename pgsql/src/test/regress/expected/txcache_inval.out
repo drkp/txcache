@@ -1,0 +1,214 @@
+-- setup
+CREATE TABLE foo (a int, b int);
+CREATE TABLE bar (c int);
+CREATE TABLE baz (d int, e text);
+INSERT INTO foo values (1,1);
+INSERT INTO foo VALUES (1,2);
+INSERT INTO foo VALUES (1,3);
+INSERT INTO foo VALUES (2,1);
+INSERT INTO bar VALUES (1);
+INSERT INTO bar VALUES (2);
+INSERT INTO bar VALUES (3);
+INSERT INTO bar VALUES (4);
+INSERT INTO bar VALUES (5);
+INSERT INTO baz VALUES (1, 'foo');
+INSERT INTO baz VALUES (2, 'bar');
+INSERT INTO baz VALUES (2, 'baz');
+INSERT INTO baz VALUES (3, 'baz');
+CREATE INDEX foo_a on foo(a);
+CREATE INDEX foo_b on foo(b);
+CREATE INDEX bar_c on bar(c);
+CREATE INDEX baz_d on baz(d);
+CREATE INDEX baz_e on baz(e);
+CREATE INDEX baz_de on baz(d,e);
+SET enable_seqscan='off';
+-- test invalidation tags on queries
+BEGIN READ ONLY ISOLATION LEVEL SERIALIZABLE;
+PIN;
+\set QUIET off
+SELECT * FROM foo WHERE a=1;
+ a | b 
+---+---
+ 1 | 1
+ 1 | 2
+ 1 | 3
+(3 rows)
+
+SELECT VALIDITY 10 21 TAGS 1 4006:400f.1:
+SELECT * FROM foo WHERE a=2;
+ a | b 
+---+---
+ 2 | 1
+(1 row)
+
+SELECT VALIDITY 11 21 TAGS 1 4006:400f.2:
+SELECT * FROM foo WHERE a=3;
+ a | b 
+---+---
+(0 rows)
+
+SELECT VALIDITY 6 21 TAGS 1 4006:400f.3:
+SELECT * FROM foo WHERE b=1;
+ a | b 
+---+---
+ 1 | 1
+ 2 | 1
+(2 rows)
+
+SELECT VALIDITY 11 21 TAGS 1 4006:4010.1:
+SELECT * FROM bar WHERE c=1;
+ c 
+---
+ 1
+(1 row)
+
+SELECT VALIDITY 12 21 TAGS 1 4008:4011.1:
+SELECT * FROM bar WHERE c>2;
+ c 
+---
+ 3
+ 4
+ 5
+(3 rows)
+
+SELECT VALIDITY 16 21 TAGS 1 4008:
+SELECT * FROM bar;
+ c 
+---
+ 1
+ 2
+ 3
+ 4
+ 5
+(5 rows)
+
+SELECT VALIDITY 16 21 TAGS 1 4008:
+SELECT * FROM baz WHERE d=1;
+ d |  e  
+---+-----
+ 1 | foo
+(1 row)
+
+SELECT VALIDITY 17 21 TAGS 1 400a:
+SELECT * FROM baz WHERE d=2;
+ d |  e  
+---+-----
+ 2 | bar
+ 2 | baz
+(2 rows)
+
+SELECT VALIDITY 19 21 TAGS 1 400a:
+SELECT * FROM baz WHERE e='bar';
+ d |  e  
+---+-----
+ 2 | bar
+(1 row)
+
+SELECT VALIDITY 18 21 TAGS 1 400a:4013.f910ecf0:
+SELECT * FROM baz WHERE e='baz';
+ d |  e  
+---+-----
+ 2 | baz
+ 3 | baz
+(2 rows)
+
+SELECT VALIDITY 20 21 TAGS 1 400a:4013.10e32a61:
+SELECT * FROM baz WHERE e='baz' AND d=3;
+ d |  e  
+---+-----
+ 3 | baz
+(1 row)
+
+SELECT VALIDITY 20 21 TAGS 1 400a:4014.3,10e32a61:
+COMMIT;
+COMMIT
+\set QUIET on
+-- clear invalidations
+SELECT * FROM pg_invalidations;
+ xstamp | tag 
+--------+-----
+      5 | 
+      6 | 
+     20 | 
+(3 rows)
+
+SELECT * FROM pg_invalidations;
+ xstamp | tag 
+--------+-----
+(0 rows)
+
+-- test invalidations
+BEGIN ISOLATION LEVEL SERIALIZABLE;
+INSERT INTO bar VALUES (10);
+COMMIT;
+SELECT * FROM pg_invalidations;
+ xstamp |     tag      
+--------+--------------
+     21 | 4008:4011.a:
+(1 row)
+
+BEGIN ISOLATION LEVEL SERIALIZABLE;
+INSERT INTO foo VALUES (1,2);
+DELETE FROM bar WHERE c = 1;
+DELETE FROM baz WHERE d = 1;
+COMMIT;
+BEGIN ISOLATION LEVEL SERIALIZABLE;
+UPDATE foo SET b=10 WHERE a=1;
+COMMIT;
+BEGIN ISOLATION LEVEL SERIALIZABLE;
+INSERT INTO foo VALUES (1,2);
+COMMIT;
+BEGIN ISOLATION LEVEL SERIALIZABLE;
+INSERT INTO baz VALUES (100,'quux');
+COMMIT;
+SELECT * FROM pg_invalidations;
+ xstamp |          tag           
+--------+------------------------
+     22 | 4008:4011.1:
+     22 | 400a:4013.dc37ba3:
+     22 | 4006:400f.1:
+     22 | 4006:4010.2:
+     22 | 400a:4012.1:
+     22 | 400a:4014.1,dc37ba3:
+     23 | 4006:400f.1:
+     23 | 4006:4010.a:
+     24 | 4006:400f.1:
+     24 | 4006:4010.2:
+     25 | 400a:4012.64:
+     25 | 400a:4014.64,7589bc0e:
+     25 | 400a:4013.7589bc0e:
+(13 rows)
+
+SELECT * FROM pg_invalidations;
+ xstamp | tag 
+--------+-----
+(0 rows)
+
+-- test null invalidation
+-- this transaction isn't serializable, so it shouldn't cause an
+-- invalidation, but should bump the xstamp, requiring a null inval.
+BEGIN;
+INSERT INTO foo VALUES (5,5);
+COMMIT;
+BEGIN READ ONLY ISOLATION LEVEL SERIALIZABLE;
+PIN;
+COMMIT;
+SELECT * FROM pg_invalidations;
+ xstamp | tag 
+--------+-----
+     26 | 
+(1 row)
+
+SELECT * FROM pg_invalidations;
+ xstamp | tag 
+--------+-----
+(0 rows)
+
+-- cleanup
+DROP TABLE foo;
+DROP TABLE bar;
+DROP TABLE baz;
+UNPIN 6;
+UNPIN 20;
+UNPIN 26;
+SET enable_seqscan='on';

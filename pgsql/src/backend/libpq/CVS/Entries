@@ -1,0 +1,15 @@
+/Makefile/1.37/Sat Nov 29 19:51:49 2003//TREL8_2_STABLE
+/README.SSL/1.4/Thu Jan  6 18:29:08 2005//TREL8_2_STABLE
+/auth.c/1.146.2.1/Thu Jul 24 17:52:09 2008//TREL8_2_STABLE
+/be-fsstubs.c/1.83/Thu Sep  7 15:37:25 2006//TREL8_2_STABLE
+/be-secure.c/1.74.2.2/Fri May 18 01:20:25 2007//TREL8_2_STABLE
+/crypt.c/1.71/Fri Jul 14 14:52:19 2006//TREL8_2_STABLE
+/hba.c/1.157/Sun Nov  5 22:42:08 2006//TREL8_2_STABLE
+/ip.c/1.38/Thu Oct 19 23:17:39 2006//TREL8_2_STABLE
+/md5.c/1.33/Tue Jun 20 19:56:52 2006//TREL8_2_STABLE
+/pg_hba.conf.sample/1.62/Wed Oct 11 23:01:46 2006//TREL8_2_STABLE
+/pg_ident.conf.sample/1.7/Fri Jan  7 23:59:17 2005//TREL8_2_STABLE
+/pqcomm.c/1.188.2.1/Mon Jun  4 11:59:40 2007//TREL8_2_STABLE
+/pqformat.c/1.42/Fri Jul 14 05:28:27 2006//TREL8_2_STABLE
+/pqsignal.c/1.42/Sun Mar  5 15:58:27 2006//TREL8_2_STABLE
+D

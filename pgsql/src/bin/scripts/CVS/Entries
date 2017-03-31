@@ -1,0 +1,14 @@
+/Makefile/1.36/Sun Mar  5 15:58:52 2006//TREL8_2_STABLE
+/clusterdb.c/1.14/Sun Mar  5 15:58:52 2006//TREL8_2_STABLE
+/common.c/1.24/Wed Oct  4 00:30:06 2006//TREL8_2_STABLE
+/common.h/1.15/Fri Sep 22 18:50:41 2006//TREL8_2_STABLE
+/createdb.c/1.21/Thu Jun  1 00:15:36 2006//TREL8_2_STABLE
+/createlang.c/1.24.2.1/Fri Aug 10 00:39:44 2007//TREL8_2_STABLE
+/createuser.c/1.34/Wed Oct  4 00:30:06 2006//TREL8_2_STABLE
+/dropdb.c/1.18/Fri Sep 22 18:50:41 2006//TREL8_2_STABLE
+/droplang.c/1.21.2.1/Fri Aug 10 00:39:44 2007//TREL8_2_STABLE
+/dropuser.c/1.19/Fri Sep 22 18:50:41 2006//TREL8_2_STABLE
+/nls.mk/1.20/Fri Sep 22 18:50:41 2006//TREL8_2_STABLE
+/reindexdb.c/1.7/Sat Sep  2 17:10:17 2006//TREL8_2_STABLE
+/vacuumdb.c/1.14/Sun Mar  5 15:58:52 2006//TREL8_2_STABLE
+D

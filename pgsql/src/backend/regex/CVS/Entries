@@ -1,0 +1,14 @@
+/COPYRIGHT/1.2/Wed Feb  5 17:41:32 2003//TREL8_2_STABLE
+/Makefile/1.21/Sat Nov 29 19:51:55 2003//TREL8_2_STABLE
+/re_syntax.n/1.1/Wed Feb  5 17:41:32 2003//TREL8_2_STABLE
+/regc_color.c/1.5.4.1/Thu Jan  3 20:48:49 2008//TREL8_2_STABLE
+/regc_cvec.c/1.5/Sat Oct 15 02:49:24 2005//TREL8_2_STABLE
+/regc_lex.c/1.5.4.1/Thu Jan  3 20:48:49 2008//TREL8_2_STABLE
+/regc_locale.c/1.8/Tue Nov 22 18:17:19 2005//TREL8_2_STABLE
+/regc_nfa.c/1.4.4.1/Thu Jan  3 20:48:49 2008//TREL8_2_STABLE
+/regcomp.c/1.44/Sat Oct 15 02:49:24 2005//TREL8_2_STABLE
+/rege_dfa.c/1.6/Sat Oct 15 02:49:24 2005//TREL8_2_STABLE
+/regerror.c/1.27/Sat Nov 29 19:51:55 2003//TREL8_2_STABLE
+/regexec.c/1.27/Sat Oct 15 02:49:24 2005//TREL8_2_STABLE
+/regfree.c/1.18/Sat Nov 29 19:51:55 2003//TREL8_2_STABLE
+D

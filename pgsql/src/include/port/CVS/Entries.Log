@@ -1,0 +1,6 @@
+A D/darwin////
+A D/win32////
+A D/win32_include////
+A D/win32_msvc////
+R D/win32_include////
+R D/darwin////

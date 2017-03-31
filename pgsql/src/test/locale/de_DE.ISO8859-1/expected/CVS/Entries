@@ -1,0 +1,10 @@
+/de-ctype.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-char.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-select.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-sort.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-text.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-upper-char.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-upper-text.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-upper-varchar.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+/test-de-varchar.sql.out/1.1/Sun Mar 19 19:52:44 2000//TREL8_2_STABLE
+D

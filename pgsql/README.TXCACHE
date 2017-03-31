@@ -1,0 +1,110 @@
+TxCache modified PostgreSQL
+==============================
+
+This is a modified version of PostgreSQL 8.2.11 with support for the
+TxCache transactional caching system:
+  http://drkp.net/drkp/papers/txcache-osdi10.pdf
+This documentation assumes familiarity with that paper, especially
+section 5 which describes the database modifications. 
+
+Contact:
+ Dan Ports <drkp@csail.mit.edu>
+
+These modifications are
+  Copyright (c) 2009-2012, Dan R. K. Ports
+  Copyright (c) 2009-2012, Massachusetts Institute of Technology
+and available under the terms of the PostgreSQL License.  
+
+
+PINNED SNAPSHOTS
+----------------
+
+The PIN command saves the current snapshot and allows it to be reused
+by future read-only transactions. PIN must be run either outside a
+transaction block or as the first statement in a read-only transaction.
+PIN returns a string indicating the ID of the saved snapshot. For example:
+    PIN 5 1334352503 457427
+The first number (5) is the identifier for the saved snapshot -- the
+logical timestamp of the most recently committed transaction. The
+other two numbers are a representation of the current wall-clock time
+on the server (seconds + microseconds since epoch) and can be used to
+enforce real-time freshness requirements.
+
+The snapshot id can be used to start a new transaction with the syntax
+    BEGIN READ ONLY SNAPSHOTID 5;
+which works only for read-only transactions.
+
+Pinned snapshots can be released using the UNPIN command, e.g.
+    UNPIN 5;
+Note that pinned snapshots are not reference-counted. That is,
+executing two PIN commands in succession with no read/write
+transactions in between will return the same snapshot ID, but it takes
+only one UNPIN to release it.
+
+BUG: due to a regrettable internal representation, error messages
+involving pinned snapshot may report the wrong (off-by-one) ID.
+
+
+VALIDITY INTERVALS
+------------------
+
+This database is modified to return a validity interval SELECT
+queries. To be precise, it only does so for queries in a read-only
+transaction running on a pinned snapshot (i.e. one that ran PIN, or
+one started with BEGIN SNAPSHOTID). These have the format
+    SELECT VALIDITY 2 5
+indicating that the result is known to be valid for all snapshots
+after the commit of transaction 2 but before transaction 5.
+
+This information is available in the command tag, and can be obtained
+through libpq. psql normally does not print the command tag for SELECT
+queries. Our psql is modified to do so, so be sure to use the one
+included here rather than one installed by your regular Postgres
+distribution if that matters.
+
+BUG: validity interval tracking does not work for bitmapscans or
+tidscans. (No fundamental reason, just laziness on my part.) We've set
+enable_bitmapscan and enable_tidscan to 'off' by default; you probably
+shouldn't re-enable them in postgresql.conf.
+
+
+INVALIDATIONS
+-------------
+
+If a SELECT query returns results that are still valid at the present
+time, the command tag contains a list of invalidation tags, e.g.:
+    SELECT VALIDITY 5 6 TAGS 1 4001:
+As usual, the validity interval returned contains both a lower bound
+and an upper bound. The TAGS keyword indicates that the result is
+still valid; if it is present, the upper bound is a concrete upper bound
+indicating that the query is valid until *at least* the timestamp
+specified.
+
+The TAGS keyword is followed by an integer indicating the number of
+invalidation tags, and then the tags themselves as a space-delimited
+list. The content of the invalidation tags is intended to be opaque to
+the caching layer, with the exception that if tag A is a prefix of tag
+B, then tag B is a finer-granularity subtag of tag A. (In practice:
+tags containing a single colon represent a read dependency on a
+particular table; tags containing two colons represent read
+dependencies on a particular index-key entry in a table.)
+
+The database produces invalidations indicating which invalidation tags
+are affected by the changes made by a read/write transaction. These
+can be obtained by reading the virtual table 'pg_invalidations'. It
+contains two columns: the transaction's timestamp and tag
+affected. There may be multiple rows with the same timestamp (for
+transactions that affected multiple tags) or rows with no tags (for
+periodic keep-alive invalidations indicating no changes have been
+made).
+
+Note that, unusually, reading pg_invalidations causes the table to be
+cleared!
+
+Clients can receive notifications when pg_invalidations is updated
+using Postgres's LISTEN/NOTIFY asynchronous notification mechanism by
+using
+   LISTEN invalidation;
+Typically this would be used by a daemon that listens for
+invalidations, reads pg_invalidations, and broadcasts them to all
+cache nodes.
