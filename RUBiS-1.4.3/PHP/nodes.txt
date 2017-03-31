@@ -1,0 +1,3 @@
+latest bounded pin with variety (5 secs)
+localhost:16000
+localhost:16001

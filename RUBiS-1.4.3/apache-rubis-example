@@ -1,0 +1,86 @@
+Listen 4312
+<VirtualHost *:4312>
+	ServerAdmin webmaster@localhost
+	LimitRequestLine 16284
+
+	DocumentRoot /u/drkp/txcache-deploy-local
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /u/drkp/txcache-deploy-local>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog /var/log/apache2/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	#CustomLog /var/log/apache2/access.log combined
+
+   <IfModule !mod_php5.c>
+    <IfModule mod_fcgid.c>
+          # Define a new handler "php-fcgi" for ".php" files, plus the action that must follow
+          AddHandler php-fcgi .php
+          Action php-fcgi /fcgi-bin/php-fcgi-wrapper
+    
+          # Define alias "/fcgi-bin/". The action above is using this value, which means that
+          # you could run another "php5-cgi" command by just changing this alias
+                    Alias /fcgi-bin/ /u/drkp/txcache-deploy-local/fcgi-wrapper/
+    
+          # Turn on the fcgid-script handler for all files within the alias "/fcgi-bin/"
+          <Location /fcgi-bin/>
+           SetHandler fcgid-script
+           Options +ExecCGI
+          </Location>
+          # ensure no access to the script source code
+          #ReWriteEngine On
+          #ReWriteRule ^/fcgi-bin/[^/]*$ / [PT]
+
+          IPCConnectTImeout 20
+          IPCCommTimeout 600
+  </IfModule>
+ </IfModule>
+</VirtualHost>
+
+CoreDumpDirectory /tmp
+
+ExtendedStatus on
+<Location /server-status>
+   SetHandler server-status
+   Order deny,allow
+   Deny from all
+   Allow from 18.26
+   Allow from 127.0.0.1
+</Location>
+
+
+<IfModule mpm_prefork_module>
+    StartServers          5
+    MinSpareServers       5
+    MaxSpareServers      10
+    MaxClients          20
+    MaxRequestsPerChild   0
+</IfModule>
+<IfModule mpm_worker_module>
+    StartServers          1
+    MaxClients           20
+    MinSpareThreads      20
+    MaxSpareThreads      75
+    ThreadsPerChild      20
+    MaxRequestsPerChild   0
+</IfModule>
+<IfModule mpm_event_module>
+    StartServers          1
+    MaxClients           20
+    MinSpareThreads      20
+    MaxSpareThreads      75
+    ThreadsPerChild      10
+    MaxRequestsPerChild   0
+</IfModule>
+
