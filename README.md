@@ -30,7 +30,7 @@ TxCache introduces the following mechanisms:
   notifications if they change.
   
 More information about the design of TxCache is available in the
-["OSDI 2010 paper"](https://drkp.net/papers/txcache-osdi10.pdf)
+[OSDI 2010 paper](https://drkp.net/papers/txcache-osdi10.pdf)
 mentioned above, as well as in the following Ph.D. thesis:
 ["Application-Level Caching with Transactional Consistency"](https://drkp.net/papers/thesis.pdf)
 (but who has time to read those?)
@@ -75,7 +75,7 @@ which disables complexity-changing assertions.
 
 Instructions for building and running the modified version of
 PostgreSQL, along with its interface, are in
-["pgsql/README.TXCACHE"](pgsql/README.TXCACHE).
+[pgsql/README.TXCACHE](pgsql/README.TXCACHE).
 
 ## Contact
 
