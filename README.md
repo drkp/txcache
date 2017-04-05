@@ -53,7 +53,7 @@ This repository contains the following parts of the TxCache system:
   necessary support, including validity interval tracking,
   invalidation generation, and explicit control of query snapshots
 - RUBiS-1.4.3/ - an adaptation of the
-  ["RUBiS benchmark"](http://rubis.ow2.org/) as used for evaluation in
+  [RUBiS benchmark](http://rubis.ow2.org/) as used for evaluation in
   the OSDI paper
 
 ## Building and Running
