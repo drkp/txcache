@@ -3,7 +3,7 @@ TxCache modified PostgreSQL
 
 This is a modified version of PostgreSQL 8.2.11 with support for the
 TxCache transactional caching system:
-  http://drkp.net/drkp/papers/txcache-osdi10.pdf
+  https://drkp.net/papers/txcache-osdi10.pdf
 This documentation assumes familiarity with that paper, especially
 section 5 which describes the database modifications. 
 
@@ -33,6 +33,15 @@ enforce real-time freshness requirements.
 The snapshot id can be used to start a new transaction with the syntax
     BEGIN READ ONLY SNAPSHOTID 5;
 which works only for read-only transactions.
+
+You will also need to run transactions at SERIALIZABLE isolation level
+(which in this version of PostgreSQL provides snapshot isolation) by doing
+one of the following:
+  1) starting transactions with BEGIN ISOLATION LEVEL SERIALIZABLE
+  2) SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL 
+     SERIALIZABLE
+  3) setting default_transaction_isolation=serializable in
+     postgresql.conf
 
 Pinned snapshots can be released using the UNPIN command, e.g.
     UNPIN 5;
